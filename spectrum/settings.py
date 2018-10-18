@@ -57,7 +57,7 @@ ROOT_URLCONF = 'spectrum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -104,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'accounts.backends.EmailAuth'
+    'accounts.backends.CaseInsensitiveAuth'
 ]
 
 # Internationalization
@@ -126,5 +126,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
-
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
