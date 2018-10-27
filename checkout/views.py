@@ -8,7 +8,7 @@ from .models import OrderLineItem
 from products.models import Product
 import stripe
 
-# Create your views here.d
+# Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
@@ -42,10 +42,10 @@ def checkout(request):
                     card = payment_form.cleaned_data['stripe_id'],
                 )
             except stripe.error.CardError:
-                messages.error(request, "Your  card was declined")
+                messages.error(request, "Your card was declined")
                 
             if customer.paid:
-                messages.error(request, "You have successfully paid!")
+                messages.success(request, "You have successfully paid!")
                 request.session['cart'] = {}
                 return redirect(reverse('products'))
             else:
