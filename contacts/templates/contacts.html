@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap_tags %}
+
+{% block page_title %}Contact Us{% endblock %}
+{% block page_heading %}Contact Form{% endblock %}
+
+{% block content %}
+
+
+<div class= "row row-flex">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-6 display panel panel-default">
+        <div class="center-form">
+            <form method="post" id="contactForm">
+                <legend>Contact Form </legend>
+                    {{ contact_form|as_bootstrap }}
+                    {% csrf_token %}
+                <div class="form-actions col-md-12">
+                    <button class="btn btn-primary" id="submit_email_btn" name="contactsubmit" type="submit">Send Email</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
