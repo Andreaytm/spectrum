@@ -2,6 +2,8 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+{% block page_title %}Your Items{% endblock %}
+
 {% block content %}
 <div class="row row-flex">
     {% for item in cart_items %}
