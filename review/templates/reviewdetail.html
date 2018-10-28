@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block page_title %}Reviews{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-2 col-sm-3 text-center">
+            <a class="story-img" href="#">
+                <img src="/media/img/profile.jpg" class="img-circle">
+            </a>
+            <p><span class="boldtext">Author:</span>{{ review.author }}</p>
+            </div>
+        </div>
+        <div class="col-sm-10 col-md-9">
+            {% if review.image %}
+                <img class="img-reviewposts" src="/media/{{ review.image }}">
+            {% endif %}
+            <h3>{{ review.title }}</h3>
+            <div class="row">
+                 <div class="col-xs-9">
+                    <p><span class="boldtext">Product:</span>{{ review.product }}</p>
+                    <p><span class="boldtext">Review:</span>{{ review.content }}</p>
+                    <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>                            
+                    <p><span class="boldtext">Views:</span> {{ review.views }}</p>
+                    <p><span class="boldtext">Tag:</span> {{ review.tag }}</p>
+                    <a href="{% url 'get_review' %}" class="btn btn-default">Back to Review</a>
+                    {% if user.is_authenticated and user == review.author %}
+                    <a href="{% url 'edit_review' review.id %}" class="btn btn-default">Edit Review</a>
+                    <a href="{% url 'delete_review' review.id %}" class="btn btn-default">Delete Review</a>
+                    {% endif %}
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
