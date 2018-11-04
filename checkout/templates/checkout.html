@@ -12,8 +12,9 @@
 <script type = "text/javascript" src= "{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
-{% block page_title %}Checkout{% endblock %}
+{% block title %}Checkout{% endblock %}
 {% block content %}
+<h1>Checkout</h1>
 <div class = "row row-flex">
     {% for item in cart_items %}
     

@@ -2,9 +2,10 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
-{% block page_title %}Your Items{% endblock %}
+{% block title %}Your Items{% endblock %}
 
 {% block content %}
+<h1>Your Items</h1>
 <div class="row row-flex">
     {% for item in cart_items %}
     
