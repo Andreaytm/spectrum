@@ -1,7 +1,31 @@
 {% extends 'base.html' %}
+{% load bootstrap_tags %}
 
-{% block page_title %}{{ user }}'s Profile{% endblock %}
+{% block title %}{{ user }}'s Profile{% endblock %}
 
 {% block content %}
-<p>{{ profile.email }}</p>
+<div class="col-sm-6 col-md-6">
+<h1>{{ user }}'s Profile</h1>
+<br>
+<p>First Name: {{ user.first_name }}</p>
+<p>Last Name: {{ user.last_name }}</p>
+<p>Email: {{ user.email }}</p>
+</div>
+{% for address in address %}
+        <div id="account-address" class="col-sm-6 col-md-6">
+        <legend>Saved Address</legend>
+        <p>Full Name: {{ address.user }}</p>
+        <p>Address 1: {{ address.address1 }}</p>
+        <p>Address 2: {{ address.address2 }}</p>
+        <p>County: {{ address.county }}</p>
+        <p>Town/City: {{ address.town_or_city }}</p>
+        <p>Postcode: {{ address.postcode}}</p>
+        <p>Country: {{ address.country }}</p>
+
+{% endfor %}
+<p class="col-sm-3"><a href="{% url 'edit_address' user.id %}" class="btn btn-info">Edit Address</a></p>
+{% if product_count > 0 %}
+<a href="{% url 'checkout' %}" class="btn btn-success col-sm-4" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Back to Checkout</a>
+{% endif %}
+</div>
 {% endblock %}

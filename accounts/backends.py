@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 
 
-class CaseInsensitiveAuth:
+class EmailAuth:
     """ 
     Authenticate a user by an exact match on the mail and password
     """
@@ -33,4 +33,3 @@ class CaseInsensitiveAuth:
             return None
         except User.DoesNotExist:
             return None
-            

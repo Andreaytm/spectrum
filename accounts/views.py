@@ -1,14 +1,14 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from .models import Address
+from .forms import UserLoginForm, UserRegistrationForm, AddressForm
+from checkout.models import OrderLineItem, Order
+from django.http import HttpResponseRedirect
+
 
 # Create your views here.
-def index(request):
-    """Return the index.html file"""
-    return render(request, 'index.html')
-
 @login_required
 def logout(request):
     """Log the user out"""
@@ -45,10 +45,15 @@ def registration(request):
         
     if request.method =="POST":
         registration_form = UserRegistrationForm(request.POST)
+        address_form = AddressForm(request.POST, request.FILES)
+
     
-        if registration_form.is_valid():
-            registration_form.save()
-        
+        if registration_form.is_valid()and address_form.is_valid():
+            user = registration_form.save()
+            address = address_form.save(commit=False)
+            address.user = user
+            address.save()
+            
             user=auth.authenticate(username=request.POST['username'],
             password=request.POST['password1'])
         
@@ -60,10 +65,29 @@ def registration(request):
                 messages.error(request, "Unable to register your account at this time")
     else:        
         registration_form = UserRegistrationForm()
+        address_form = AddressForm()
     return render(request, 'registration.html', {
-        "registration_form": registration_form})
+        "registration_form": registration_form, 'address_form': address_form})
 
 def user_profile(request):
     """ The user's profile page"""
-    user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    user= request.user
+    address = Address.objects.filter(user=user)
+    orderlineitem = OrderLineItem.objects.all()
+    orders = Order.objects.all()
+    return render(request, 'profile.html', {'address': address}) 
+
+def edit_address(request, user_id=None):
+    user = get_object_or_404(User, pk=user_id)
+    address = get_object_or_404(Address, user=user) if user else None
+
+    if request.method == "POST":
+        addressform = AddressForm(request.POST, request.FILES, instance=address)
+        if addressform.is_valid():
+            address = addressform.save(commit=False)
+            address.user = request.user
+            deliveryaddress= address.save()
+            return redirect(reverse(user_profile))
+    else:
+        addressform = AddressForm(instance=address)
+    return render(request, 'address.html', {'addressform': addressform})
