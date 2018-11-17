@@ -10,12 +10,11 @@
 </p>
 
 <form method="POST">
-  {% csrf_token %}
-  {{ registration_form | as_bootstrap }}
-  <legend>Address</legend>
-  <p>Please note these details will be saved as your delivery address on your profile page</p>
-  {{ address_form | as_bootstrap }}
- 
-  <button type="submit" class="btn btn-info">Register</button>
+{% csrf_token %}
+{{ registration_form | as_bootstrap }}
+<legend>Address</legend>
+<p>Please note these details will be saved as your delivery address on your profile page</p>
+{{ address_form | as_bootstrap }}
+<button type="submit" class="btn btn-info">Register</button>
 </form>
 {% endblock %}

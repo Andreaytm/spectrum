@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load bootstrap_tags %}
 {% block content %}
 <div class= "row row-flex">
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-8 display panel panel-default">
@@ -19,44 +20,42 @@
     </div>
 </div>
 
+<a href="{% url 'get_review' %}"><h3>Our Customer Reviews</h3></a>
 <div class= "row row-flex">
+{% for review in review %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-        <div class="panel-body">
-            <h3>Review Title Here</h3>
-            <img src="/">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-            magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-            quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-            </p>
+        <div class="review-panel">
+            <div class="col-md-6 col-sm-6 text-center">
+                <p><div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
+                <p><span class="boldtext">Product:</span> {{ review.product }}</p>
+                <p><span class="boldtext">{{ review.author }} image:</span> <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <a href="{% url 'review_detail' review.id %}"><h3>{{ review.title }}</h3></a>
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p><span class="boldtext">Author:</span>{{ review.author }}</p>
+                        <p><span class="boldtext">Rating:</span><p class="rating">{{ review.rating }}</p></p>
+                        <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>                            
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-        <div class="panel-body">
-            <h3>Review Title Here</h3>
-            <img src="/">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-            magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-            quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-            </p>
-        </div>
-    </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-        <div class="panel-body">
-            <h3>Review Title Here</h3>
-            <img src="/">
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-            sed diam nonummy nibh euismod tincidunt ut laoreet dolore
-            magna aliquam erat volutpat. Ut wisi enim ad minim veniam,
-            quis nostrud exerci tation ullamcorper suscipit lobortis nisl
-            </p>
-        </div>
+{% endfor %}
+</div>
+
+<a href="{% url 'products' %}"><h3>Our Images</h3></a>
+<div class= "row row-flex">
+{% for product in product %}
+<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+    <div class="panel-body">
+        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>        
+        <a href="{% url 'products' %}"><h3>{{ product.name }}</h3></a>
+        <p class="product-description">{{ product.description }}</p>
+        <p>{{ product.price }}</p>
     </div>
 </div>
-<div>
-{% for review in review %}
 {% endfor %}
-<!-- Add products in here -->
 </div>
 {% endblock %}
