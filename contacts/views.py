@@ -1,9 +1,11 @@
+#Django Contact Form Adapted from:https://wsvincent.com/django-contact-form/
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.contrib import messages
 from django.conf import settings
 from .forms import contactForm
+from .models import contact
 
 # Create your views here.
 email_address = settings.EMAIL_HOST_USER
@@ -19,7 +21,8 @@ def contacts(request):
             subject = contact_form.cleaned_data['subject']
             from_email = contact_form.cleaned_data['from_email']
             your_message = contact_form.cleaned_data['your_message']
-            
+            contacts = contact.objects.all()
+            args= {'contacts': contacts}
             try:
                 fullmessage = your_message + " " + full_name + " " + "<" + from_email + ">"
                 send_mail(subject, fullmessage, from_email, [email_address])
