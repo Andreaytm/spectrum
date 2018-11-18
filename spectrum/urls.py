@@ -17,7 +17,6 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.views import static
 from home.views import index
-from django.views.generic import RedirectView
 from accounts import urls as urls_accounts
 from products import urls as urls_products
 from cart import urls as urls_cart
