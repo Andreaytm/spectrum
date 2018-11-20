@@ -52,7 +52,7 @@
     <div class="panel-body">
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>        
         <a href="{% url 'products' %}"><h3>{{ product.name }}</h3></a>
-        <p class="product-description">{{ product.description }}</p>
+        <p class="product-description"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ product.description }}</p>
         <p>{{ product.price }}</p>
     </div>
 </div>
