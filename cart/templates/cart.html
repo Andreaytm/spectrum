@@ -10,13 +10,15 @@
     {% for item in cart_items %}
     
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
-        
+    <div class="panel-body">
+
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
         
         <div class="caption">
         <h3>{{ item.product.name }}</h3>
-        <p class="product-description">{{ item.product.description }}</p>
-        <p>{{ item.product.price }}</p>
+        <p class="product-description">{{ item.product.description }}</p><br>
+        <p>Image: © Andrea Ma</p><br>
+        <p><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ item.product.price }}</p>
         <p>
             <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
                 {% csrf_token %}
@@ -33,11 +35,12 @@
         </p>
         </div>
     </div>
+    </div>
     {% endfor %}
 </div>
-<div class="row checkout-btn">
-    <p>Total</p>
-    <p><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ total }}</p>
+<div class="row checkout-btn"><br>
+    <p>Total (incl delivery):  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ total }} </p>
+    <p>Delivery Cost:  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ totaldeliverycost }}</p>
     <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
 </div>
 {% endblock %}
