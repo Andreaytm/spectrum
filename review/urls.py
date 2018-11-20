@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^(?P<pk_review>\d+)/$', review_detail, name='review_detail'),
     url(r'^new/$', create_or_edit_review, name='new_review'),
     url(r'^(?P<pk_review>\d+)/edit/$', create_or_edit_review, name='edit_review'),
-    url(r'^(?P<pk_review>\d+)/delete/$', delete_review, name='delete_review'),
+    url(r'^(?P<pk_review>\d+)/delete/$', delete_review, name='delete_review')
     ]

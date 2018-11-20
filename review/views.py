@@ -3,6 +3,7 @@ from django.utils import timezone
 from .models import Review
 from .forms import ReviewForm 
 from django.http import HttpResponseRedirect
+from products.models import Product
 
 def get_review(request):
     """
@@ -13,11 +14,10 @@ def get_review(request):
     review = Review.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
     return render(request, "reviewposts.html", {'review' : review})
 
-
 def review_detail(request, pk_review):
     """
     Create a view that returns a single 
-    Review object based ont he review ID (pk) and 
+    Review object based on the review ID (pk) and 
     render it to the 'reviewdetail.html' template.
     Or return a 404 error if the review is not found
     """
@@ -32,11 +32,7 @@ def create_or_edit_review(request, pk_review=None):
     or edit a review depending if the Review ID 
     is null or not
     """ 
-    if pk_review ==None:
-        review=Review()
-    else:
-        review=Review.objects.get(id=pk_review)
-    
+    review = get_object_or_404(Review, pk=pk_review) if pk_review else None
     if request.method == "POST":
         reviewform = ReviewForm(request.POST, request.FILES, instance=review) 
         if reviewform.is_valid():
