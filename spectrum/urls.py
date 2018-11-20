@@ -24,11 +24,13 @@ from search import urls as urls_search
 from checkout import urls as urls_checkout
 from contacts import urls as urls_contacts
 from review import urls as urls_review
+from home import urls as urls_home
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
+    url(r'^home/', include(urls_home)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^products/', include(urls_products)),
     url(r'^cart/', include(urls_cart)),
