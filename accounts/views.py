@@ -73,12 +73,10 @@ def user_profile(request):
     """ The user's profile page"""
     user= request.user
     address = Address.objects.filter(user=user)
-    orderlineitem = OrderLineItem.objects.all()
-    orders = Order.objects.all()
     return render(request, 'profile.html', {'address': address}) 
 
 def edit_address(request, user_id=None):
-    user = get_object_or_404(User, pk=user_id)
+    user = get_object_or_404(User, pk=user_id) 
     address = get_object_or_404(Address, user=user) if user else None
 
     if request.method == "POST":
