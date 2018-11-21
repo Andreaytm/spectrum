@@ -13,11 +13,11 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, "index.html")
         
     def test_get_about_page(self):
-        response = self.client.get("/about/")
+        response = self.client.get("/home/about/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "about.html")
         
     def test_get_delivery_page(self):
-        response = self.client.get("/delivery/")
+        response = self.client.get("/home/delivery/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "delivery.html")
