@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import Address
 from .forms import UserLoginForm, UserRegistrationForm, AddressForm
-from checkout.models import OrderLineItem, Order
 from django.http import HttpResponseRedirect
 
 

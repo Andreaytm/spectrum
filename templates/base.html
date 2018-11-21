@@ -32,7 +32,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/">About</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
                     <li><a href="{% url 'products' %}">Shop</a></li>
                     <li><a href="{% url 'get_review' %}">Reviews</a></li>
                     <li><a href="{% url 'contacts' %}">Contact Us</a></li>
@@ -93,17 +93,19 @@
      
             <div id="footer-details" class="row">
                 <div class="col-sm-4">
+                    <h5 class="uppercase general-sub"><a href="{% url 'about' %}">About Us</a></h5>
+                    <h5 class="uppercase general-sub"><a href="{% url 'delivery' %}">Delivery Details</a></h5>
                     <h5 class="uppercase general-sub"><a href="{% url 'contacts' %}">Contact Us</a></h5>
                 </div>
                 <div class="col-sm-4">
                     <h5 class="uppercase general-sub">MySocial</h5>
                     <ul class="list-inline social-links">
-                        <li><a target="_blank" class="hvr-sweep-to-bottom" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-                        <li><a target="_blank" class="hvr-sweep-to-bottom" href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-                        <li><a target="_blank" class="hvr-sweep-to-bottom" href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a target="_blank" class="hvr-sweep-to-bottom" href="https://www.pinterest.co.uk"><i class="fa fa-pinterest"></i></a></li>
-                        <li><a target="_blank" class="hvr-sweep-to-bottom" href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
-                        <li><a target="_blank" class="hvr-sweep-to-bottom" href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
+                        <li><a target="_blank" class="soc-link hvr-soc-link-red" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
+                        <li><a target="_blank" class="soc-link hvr-soc-link-orange" href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
+                        <li><a target="_blank" class="soc-link hvr-soc-link-yellow" href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a target="_blank" class="soc-link hvr-soc-link-green" href="https://www.pinterest.co.uk"><i class="fa fa-pinterest"></i></a></li>
+                        <li><a target="_blank" class="soc-link hvr-soc-link-indigo" href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
+                        <li><a target="_blank" class="soc-link hvr-soc-link-violet" href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
                     </ul>
                 </div>
             </div>
