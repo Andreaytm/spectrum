@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">        
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Spectrum</title>
+    <title>Spectrum {% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">    
     <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css">
@@ -15,7 +15,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     {% block head_js %}
     {% endblock head_js %}
-    <title>{% block title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -98,7 +97,7 @@
                     <h5 class="uppercase general-sub"><a href="{% url 'contacts' %}">Contact Us</a></h5>
                 </div>
                 <div class="col-sm-4">
-                    <h5 class="uppercase general-sub">MySocial</h5>
+                    <h5 class="soc-links-title">Connect with us via Social Media!</h5>
                     <ul class="list-inline social-links">
                         <li><a target="_blank" class="soc-link hvr-soc-link-red" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
                         <li><a target="_blank" class="soc-link hvr-soc-link-orange" href="https://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
