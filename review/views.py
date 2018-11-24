@@ -11,8 +11,9 @@ def get_review(request):
     of Reviews that were published prior to 'now'
     and render them to the 'reviewposts.html' template
     """
+    products = Product.objects.all()
     review = Review.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, "reviewposts.html", {'review' : review})
+    return render(request, "reviewposts.html", {'review' : review, 'products': products})
 
 def review_detail(request, pk_review):
     """
