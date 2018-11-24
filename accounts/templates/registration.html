@@ -6,14 +6,19 @@
 
 {% block content %}  
 <h1>Registration Page</h1>
-<p>If you already have an account, you can <a href="{% url 'login' %}">sign in</a>
-</p>
-
+<br>
+<p>If you already have an account, you can <a href="{% url 'login' %}">sign in</a></p>
+<br>
+<legend>User Account Details</legend>
 <form method="POST">
 {% csrf_token %}
 {{ registration_form | as_bootstrap }}
-<legend>Address</legend>
+<br>
+<br>
+<legend>Address Details</legend>
+<br>
 <p>Please note these details will be saved as your delivery address on your profile page</p>
+<br>
 {{ address_form | as_bootstrap }}
 <button type="submit" class="btn btn-info">Register</button>
 </form>

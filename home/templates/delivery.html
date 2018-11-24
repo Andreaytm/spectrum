@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
+{% block title %}- Delivery{% endblock %}
+
 {% block content %}
 <h1>Delivery</h1>
+<br>
 <div class= "row row-flex">
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-8 display panel panel-default">
         <div class="panel-body">
@@ -9,7 +12,7 @@
 <br>
 <p>All our UK deliveries are simply charged at a flat rate of £4 using a Signed For/Tracked service. 
 The cost of delivery will be included when you add an product to your cart.
-If you have any queries, please just contact us through the form and we’ll try our very best to accommodate your request.
+If you have any queries, please <a href="{% url 'contacts' %}">contact us</a> and we’ll try our very best to accommodate your request.
 </p>
 
 <h2>Standard Delivery /Timescales</h2>
@@ -25,7 +28,7 @@ and are from outside the UK. Please do get in touch. We hope to expand to a wide
 
 <h2>Returns & Exchanges: Damaged goods</h2>
 <br>
-<p>In the unlikely event that your order arrives damaged, please contact us immediately so that we can arrange a replacement. 
+<p>In the unlikely event that your order arrives damaged, please <a href="{% url 'contacts' %}">contact us</a> immediately so that we can arrange a replacement. 
 For insurance purposes, we usually need to have some sort of photographic evidence of the damage and will also require the 
 damaged goods and original packaging to be returned to us before we can ship a replacement to you.
 </p>

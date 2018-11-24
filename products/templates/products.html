@@ -5,11 +5,24 @@
 
 <h1>Our Images</h1>
     <br>
+   
+
     <p>Please note that all prints will add a £4 delivery fee when added to cart which is the cost of a Signed For/Tracked and insured service</p>
     {% if user.is_authenticated %}
     <p>If you wish to provide some feedback on our images please feel free to <a href="{% url 'new_review' %}">add a review.</a></p>
     {% endif %}
     <p>Please feel free to have a look at our <a href="{% url 'get_review' %}">customer reviews</a></p>
+    
+    <li class="products dropdown">
+    <button class="dropdown-toggle btn btn-info" data-toggle="dropdown">Sort Products
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+        <li><a href="{% url 'sort-a-z' %}">Sort Alphabetically (A-Z)</a></li>
+        <li><a href="{% url 'sort-z-a' %}">Sort Reverse Alphabetically (Z-A)</a></li>
+        <li><a href="{% url 'sort-asc-cost' %}">Sort by Price (Low - High)</a></li>
+        <li><a href="{% url 'sort-desc-cost' %}">Sort by Price (High - Low)</a></li>
+    </ul>
+    </li>
 <div class= "row row-flex">
 {% for product in products %}
 
