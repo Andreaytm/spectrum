@@ -28,7 +28,10 @@
             <div class="col-md-6 col-sm-6 text-center">
                 <p><div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
                 <p><span class="boldtext">Product:</span> {{ review.product }}</p>
+                 {% if review.image == "" %}
+                {% else %}
                 <p><span class="boldtext">{{ review.author }} image:</span> <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
+                {% endif %}            
             </div>
             <div class="col-md-6 col-sm-6">
                 <a href="{% url 'review_detail' review.id %}"><h3>{{ review.title }}</h3></a>
