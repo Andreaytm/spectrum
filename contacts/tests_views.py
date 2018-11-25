@@ -18,7 +18,7 @@ class ContactsTestViews(TestCase):
         contact_form = contactForm({
             'full_name' : 'John Doe',
             'subject' : 'Example Subject',
-            'from_email' : '123@example.com',
+            'your_email' : '123@example.com',
             'your_message' : 'Message here'
         })
         self.assertTrue(contact_form.is_valid())
@@ -28,7 +28,7 @@ class ContactsTestViews(TestCase):
         contact_form = contactForm({
             'full_name' : 'John Doe',
             'subject' : 'Example Subject',
-            'from_email' : 'example.com',
+            'your_email' : 'example.com',
             'your_message' : 'Message here'
         })
         self.assertFalse(contact_form.is_valid())    
@@ -38,7 +38,7 @@ class ContactsTestViews(TestCase):
         contact_form = contactForm({
             'full_name' : 'John Doe',
             'subject' : 'Example Subject',
-            'from_email' : '123@example.com',
+            'your_email' : '123@example.com',
             'your_message' : 'Message here'
         })
         self.assertTrue(contact_form.is_valid())

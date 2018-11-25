@@ -19,12 +19,12 @@ def contacts(request):
         if contact_form.is_valid():
             full_name = contact_form.cleaned_data['full_name']
             subject = contact_form.cleaned_data['subject']
-            from_email = contact_form.cleaned_data['from_email']
+            your_email = contact_form.cleaned_data['your_email']
             your_message = contact_form.cleaned_data['your_message']
 
             try:
-                fullmessage = your_message + " " + full_name + " " + "<" + from_email + ">"
-                send_mail(subject, fullmessage, from_email, [email_address])
+                fullmessage = your_message + " " + full_name + " " + "<" + your_email + ">"
+                send_mail(subject, fullmessage, your_email, [email_address])
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
             return redirect('thanks')
