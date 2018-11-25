@@ -29,6 +29,10 @@ class UserRegistrationForm(UserCreationForm):
         label="Last Name",
         )
     
+    email=forms.EmailField(
+        label="Email",
+        )
+    
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username', 'password1', 'password2')

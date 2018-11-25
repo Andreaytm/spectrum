@@ -83,8 +83,9 @@ def edit_address(request, user_id=None):
         if addressform.is_valid():
             address = addressform.save(commit=False)
             address.user = request.user
-            deliveryaddress= address.save()
+            address.save()
             return redirect(reverse(user_profile))
     else:
         addressform = AddressForm(instance=address)
-    return render(request, 'address.html', {'addressform': addressform})
+        return render(request, 'address.html', {'addressform': addressform})
+            
