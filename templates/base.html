@@ -16,7 +16,6 @@
     {% block head_js %}
     {% endblock head_js %}
 </head>
-
 <body>
     <nav class="navbar navbar-masthead navbar-default navbar-fixed-top">
         <div class="container">
@@ -84,7 +83,7 @@
         </div>
     {% endif %}
     <div class="container">
-        {% block content %}{% endblock %}        
+        {% block content %}<a name="top"></a>{% endblock %}        
     </div>
     <footer>
         <div class="container">
@@ -106,6 +105,9 @@
                         <li><a target="_blank" class="soc-link hvr-soc-link-indigo" href="https://www.instagram.com"><i class="fa fa-instagram"></i></a></li>
                         <li><a target="_blank" class="soc-link hvr-soc-link-violet" href="https://www.youtube.com"><i class="fa fa-youtube"></i></a></li>
                     </ul>
+                </div>
+                <div class="col-sm-4">
+                <a href="#top"><i class="fa fa-arrow-circle-up"></i></a>
                 </div>
             </div>
         </div>

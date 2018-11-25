@@ -7,10 +7,10 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
     <div class="review-panel">
         <div class="col-md-6 col-sm-6 text-center">
-            <p><div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
+            <p><div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
             {% if review.image == "" %}
             {% else %}
-            <p><span class="boldtext">{{ review.author }} image:</span> <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
+            <p><span class="boldtext">{{ review.author }} image:</span> <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
             {% endif %}        
             
         </div>
