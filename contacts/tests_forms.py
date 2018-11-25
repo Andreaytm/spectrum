@@ -7,7 +7,7 @@ class TestContactForm(TestCase):
         contact_form = contactForm({
             'full_name': 'John Doe',
             'subject': 'Example Message', 
-            'from_email': '1user@gmail.com', 
+            'your_email': '1user@gmail.com', 
             'your_message': 'Hello there'
         })
         self.assertTrue(contact_form.is_valid())
@@ -16,7 +16,7 @@ class TestContactForm(TestCase):
         contact_form = contactForm({
             'full_name': 'John Doe',
             'subject': '', 
-            'from_email': '1user@gmail.com', 
+            'your_email': '1user@gmail.com', 
             'your_message': 'Hello there'
         })
         self.assertFalse(contact_form.is_valid())
@@ -25,7 +25,7 @@ class TestContactForm(TestCase):
         contact_form = contactForm({
             'full_name': 'John Doe',
             'subject': 'Hello', 
-            'from_email': '1user', 
+            'your_email': '1user', 
             'your_message': 'Hello there'
         })
         self.assertFalse(contact_form.is_valid())
