@@ -3,6 +3,9 @@
 {% block title %}New Review{% endblock %}
 {% block content %}
 <h1>New Review</h1>
+<br>
+<p>Please note that reviews are monitored and use of inappropriate content or language is not permissible and will be deleted from the site</p>
+<br>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ review_form | as_bootstrap }}

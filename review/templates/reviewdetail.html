@@ -16,8 +16,8 @@
         </div>
         <div class="col-sm-6 col-md-6">
             <div class="row">
-                <h3>{{ review.product }}</h3>
                  <div class="col-xs-9">
+                    <h3>{{ review.product }}</h3>
                     <p><span class="boldtext">Author:</span>{{ review.author }}</p>
                     <p><span class="boldtext">Review:</span>{{ review.content }}</p>
                     <p><span class="boldtext {{ review.rating }}">Rating:</span><p class="rating">{{ review.rating }}</p></p>
@@ -27,15 +27,16 @@
                 </div>
             </div>
         </div>
-                    <p><a  href="{% url 'get_review' %}" class="btn btn-info col-xs-6 col-md-4">Back to Review</a></p>
-                    <br>
-                    {% if user.is_authenticated and user == review.author %}
-                    <br>
-                    <p><a href="{% url 'edit_review' review.id %}" class="btn btn-primary col-xs-6 col-md-4">Edit Review</a></p> 
-                    <br>
-                    <br>
-                    <p><a href="{% url 'delete_review' review.id %}" class="btn btn-danger col-xs-6 col-md-4">Delete Review</a></p>
-                    {% endif %}
+        <p><a  href="{% url 'get_review' %}" class="btn btn-info col-xs-6 col-md-4">Back to Review</a></p>
+        <br>
+        {% if user.is_authenticated and user == review.author %}
+        <p><a href="{% url 'edit_review' review.id %}" class="btn btn-primary col-xs-6 col-md-4">Edit Review</a></p> 
+        {% endif %}
+        <br>
+        {% if user.is_superuser or user.is_authenticated and user == review.author %}
+        <p><a href="{% url 'delete_review' review.id %}" class="btn btn-danger col-xs-6 col-md-4">Delete Review</a></p>
+        {% endif %}
+        <br>
     </div>
     </div>
     </div>

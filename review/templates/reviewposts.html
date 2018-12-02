@@ -1,3 +1,4 @@
+<!-- https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box-->
 {% extends 'base.html' %}
 
 {% block title %}- Customer Reviews{% endblock %}
@@ -5,9 +6,14 @@
 {% block content %}
 <h1>Customer Reviews</h1>
 <br>
-<p>If you wish to provide some feedback on our images please feel free to <a href="{% url 'new_review' %}">add a review here.</a></p>
+<p>Please find our customer reviews of our images</p>
+{% if user.is_authenticated %}
+<p>Please feel free to add your opinions of our products <a href="{% url 'new_review' %}"> here.</a></p>
+{% endif %}
+<br>
 <form class="form-inline" action="{% url 'filter' %}" method="get">
-    <select name="z">
+    <select name="z" required>
+        <option value="" disabled selected hidden>Click here for dropdown options</option>
         {% for product in products %}
         <option value="{{ product.name }}">{{ product.name }}</option>
         {% endfor %}
@@ -41,6 +47,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <br>
+    {% empty %}
+    <br>
+    <div class="col-md-6 col-sm-6">
+    <p>Sorry there are currently no reviews for the selected product.{% if user.is_authenticated %} Please feel free to <a href="{% url 'new_review' %}">add a review here.</a>{% endif %}</p>
     </div>
 {% endfor %}
 </div>
