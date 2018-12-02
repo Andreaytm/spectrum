@@ -19,6 +19,9 @@
         <li><a href="{% url 'sort-z-a' %}">Sort (Z-A)</a></li>
         <li><a href="{% url 'sort-asc-cost' %}">Sort by Price (Low - High)</a></li>
         <li><a href="{% url 'sort-desc-cost' %}">Sort by Price (High - Low)</a></li>
+        <li><a href="{% url 'filter_product_a4' %}">Show all A4 Prints</a></li>
+        <li><a href="{% url 'filter_product_a3' %}">Show all A3 Prints</a></li>
+        <li><a href="{% url 'filter_product_a2' %}">Show all A2 Prints</a></li>
     </ul>
     </li>
     
@@ -34,7 +37,7 @@
         <p class="product-description">{{ product.description }}</p>
         <br>
         <p>Image: © Andrea Ma</p>
-        <p><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ product.price }}</p>
+        <p class="price"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ product.price }}</p>
         <form method="post" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
             <div class="input-group">
