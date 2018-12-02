@@ -9,13 +9,14 @@
 <br>
 <p>First Name: {{ user.first_name }}</p>
 <p>Last Name: {{ user.last_name }}</p>
+<p>Username: {{ user }}</p></p>
 <p>Email: {{ user.email }}</p>
 </div>
 <br>
 {% for address in address %}
         <div id="account-address" class="col-sm-6 col-md-6">
         <legend>Saved Address</legend>
-        <p>Full Name: {{ address.user }}</p>
+        <p>Full Name: {{ address.full_name }}</p>
         <p>Address 1: {{ address.address1 }}</p>
         <p>Address 2: {{ address.address2 }}</p>
         <p>County: {{ address.county }}</p>
@@ -31,4 +32,16 @@
 {% endif %}
 </div>
 
+<legend>Order History</legend>
+{% for orders in orders %}
+<div class="col-xs-12">
+<div class="panel-body-profile">
+<h3 class="order-profile-info">Product Name: {{ orders.product.name }}</h3> 
+<p class="order-profile-info">Order Number: #{{ orders.order.id }}</p>
+<p class="product-profile" style="background-image: url('{{ MEDIA_URL }}{{ orders.product.image }}')"></p>     
+<p class="order-profile-info">Quantity: {{ orders.quantity }}</p>
+<p class="order-profile-info"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ orders.product.price }} + Delivery Cost <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>4</p>
+</div>
+</div>
+{% endfor %}
 {% endblock %}

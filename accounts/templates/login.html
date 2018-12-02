@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
-{% block title %}- Login Page{% endblock %}
+{% block title %}- Login{% endblock %}
 {% block content %}  
 <h1>Login Page</h1>
+<br>
+<p>If you don't already have an account, please <a href="{% url 'registration' %}">register here</a></p>
+<br>
 <form action="/accounts/login/" method="POST">
     {% csrf_token %}
     {{ login_form | as_bootstrap }}
