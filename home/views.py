@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from products.models import Product
 from review.models import Review
+from django.utils import timezone
+import random
 
 def index(request):
     """ A view that displays the index page """
-    product = Product.objects.all()[:6]
-    review = Review.objects.all()[:3]
+    foo =['pink', 'orange', 'yellow', 'green', 'blue', 'red', 'purple', 'white', 'grey', 'black'] 
+    option= random.choice(foo)
+    product = Product.objects.filter(description__icontains= option )[:3]
+    review = Review.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')[:3]
     args= {'product':product, 'review': review}
     return render(request, "index.html", args)
 
