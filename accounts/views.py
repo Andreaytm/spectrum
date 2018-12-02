@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Address
 from .forms import UserLoginForm, UserRegistrationForm, AddressForm
 from django.http import HttpResponseRedirect
+from checkout.models import OrderLineItem
 
 
 # Create your views here.
@@ -72,7 +73,8 @@ def user_profile(request):
     """ The user's profile page"""
     user= request.user
     address = Address.objects.filter(user=user)
-    return render(request, 'profile.html', {'address': address}) 
+    orders = OrderLineItem.objects.filter(user=user)
+    return render(request, 'profile.html', {'address': address, 'orders': orders}) 
 
 def edit_address(request, user_id=None):
     user = get_object_or_404(User, pk=user_id) 
