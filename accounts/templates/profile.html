@@ -31,7 +31,7 @@
 <a href="{% url 'checkout' %}" class="btn btn-success col-sm-4" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Back to Checkout</a>
 {% endif %}
 </div>
-
+<br>
 <legend>Order History</legend>
 {% for orders in orders %}
 <div class="col-xs-12">
@@ -42,6 +42,10 @@
 <p class="order-profile-info">Quantity: {{ orders.quantity }}</p>
 <p class="order-profile-info"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ orders.product.price }} + Delivery Cost <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>4</p>
 </div>
+</div>
+{% empty %}
+<div>
+<p>You don't currently have any past orders. Please check out <a href="{% url 'products' %}">our images</a> to see if there is anything you'd like to buy</p>
 </div>
 {% endfor %}
 {% endblock %}
