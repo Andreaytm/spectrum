@@ -23,8 +23,10 @@ def contacts(request):
             your_message = contact_form.cleaned_data['your_message']
 
             try:
-                fullmessage = your_message + " " + full_name + " " + "<" + your_email + ">"
+                fullmessage = "Your Message: \n" + your_message + "\n" + "\n" + "From: \n" +  "\n" + full_name + " \n " + "<" + your_email + ">"
                 send_mail(subject, fullmessage, your_email, [email_address])
+                send_mail("Thank you for contacting Spectrum Ltd: " + subject, "Thank you for contacting Spectrum Ltd." + "\n" + "\n"  + "We value your opinion and thoughts." + "\n" + "\n" + "A customer representative will be in touch with you in the next 2 weeks." + "\n" +"\n" + "Please find below a copy of the message you sent to us for your information." + "\n" + "\n" + fullmessage, your_email, [your_email])
+
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
             return redirect('thanks')
