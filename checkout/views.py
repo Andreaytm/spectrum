@@ -35,7 +35,8 @@ def checkout(request):
                     order = order,
                     product = product, 
                     quantity = quantity,
-                    user = user
+                    user = user,
+                    date = timezone.now()
                     )
                 order_line_item.save()
                 

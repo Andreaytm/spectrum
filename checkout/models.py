@@ -2,6 +2,7 @@ from django.db import models
 from products.models import Product
 from accounts.models import Address
 from django.contrib.auth.models import User
+import datetime
 
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
@@ -21,6 +22,7 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False)
     product = models.ForeignKey(Product, null=False)
     quantity = models.IntegerField(blank=False)
+    date = models.DateField(default="")
     
     def __str__(self):
         return "{0} {1} @ {2}".format(self.quantity, self.product.name, self.product.price)
