@@ -1,38 +1,34 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% block title %}- Delivery{% endblock %}
-
 {% block content %}
 <h1>Delivery</h1>
 <br>
-<div class= "row row-flex">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-8 display panel panel-default">
+<div class= "container-fluid row row-flex">
+    <div class="col-xs-12 col-sm-12 col-md-8 display panel panel-default">
         <div class="panel-body">
-<h2>UK Delivery</h2>
-<br>
-<p>All our UK deliveries are simply charged at a flat rate of £4 using a Signed For/Tracked service. 
-The cost of delivery will be included when you add an product to your cart.
-If you have any queries, please <a href="{% url 'contacts' %}">contact us</a> and we’ll try our very best to accommodate your request.
-</p>
-
-<h2>Standard Delivery /Timescales</h2>
-<br>
-<p> We usually ship all orders next day but guarantee shipping within 2-5 working days from when the order is received.
-Once dispatched, we will email you to let you know the goods have been sent. 
-</p>
-
-<h2>European and International Delivery</h2>
-<br>
-<p>Unfortunately we do not yet deliver to any European or International customers. If you are however interested in our products
-and are from outside the UK. Please do get in touch. We hope to expand to a wider audience once we find out feet.</p>
-
-<h2>Returns & Exchanges: Damaged goods</h2>
-<br>
-<p>In the unlikely event that your order arrives damaged, please <a href="{% url 'contacts' %}">contact us</a> immediately so that we can arrange a replacement. 
-For insurance purposes, we usually need to have some sort of photographic evidence of the damage and will also require the 
-damaged goods and original packaging to be returned to us before we can ship a replacement to you.
-</p>
-
+            <h2>UK Delivery</h2>
+            <br>
+            <p>All our UK deliveries are simply charged at a flat rate of £4 using a Signed For/Tracked service. 
+                The cost of delivery will be included when you add an product to your cart.
+                If you have any queries, please <a href="{% url 'contacts' %}">contact us</a> and we’ll try our very best to accommodate your request.
+            </p>
+            <h2>Standard Delivery /Timescales</h2>
+            <br>
+            <p> We usually ship all orders next day but guarantee shipping within 2-5 working days from when the order is received.
+                Once dispatched, we will email you to let you know the goods have been sent. 
+            </p>
+            <h2>European and International Delivery</h2>
+            <br>
+            <p>Unfortunately we do not yet deliver to any European or International customers. If you are however interested in our products
+                and are from outside the UK. Please do get in touch. We hope to expand to a wider audience once we find out feet.
+            </p>
+            <h2>Returns & Exchanges: Damaged goods</h2>
+            <br>
+            <p>In the unlikely event that your order arrives damaged, please <a href="{% url 'contacts' %}">contact us</a> immediately so that we can arrange a replacement. 
+                For insurance purposes, we usually need to have some sort of photographic evidence of the damage and will also require the 
+                damaged goods and original packaging to be returned to us before we can ship a replacement to you.
+            </p>
         </div>
     </div>
 </div>

@@ -2,115 +2,122 @@
 {% load bootstrap_tags %}
 {% load staticfiles %}
 {% block content %}
-<div class= "row row-flex">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-8 display panel panel-default">
-        <div class="panel-body">
-            <div id="carousel-index" class="carousel slide container col-12" data-ride="carousel" data-interval="false">
+<div class="carousel container-fluid row row-flex">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-9 display panel panel-default">
+        <div id="carousel-index" class="carousel slide container" data-ride="carousel" data-interval="false">
             <div class="carousel-inner" role="listbox">
-            <figure class="carousel-image item active">
-                <img class="carousel-img "  src="{% static "images/strawberry.jpg" %}" alt="strawberry">
-                 <div class="carousel-caption">
-                    <h3>Red</h3>
-                </div>
-            </figure>
-            <figure class="carousel-image item">
-                <img class="carousel-img"  src="{% static "images/birdofparadise.jpg" %}" alt="birdofparadise">
-                <div class="carousel-caption">
-                    <h3>Orange</h3>
-                </div>
-            </figure>
-            <figure class="carousel-image item">
-                <img class="carousel-img"  src="{% static "images/sunflower.jpg" %}" alt="sunflower">
-                <div class="carousel-caption">
-                    <h3>Yellow</h3>
-                </div>
-            </figure>
-            <figure class="carousel-image item">
-                <img class="carousel-img"  src="{% static "images/cacti.jpg" %}" alt="cacti">
-                <div class="carousel-caption">
-                    <h3>Green</h3>
-                </div>
-            </figure>
-            <figure class="carousel-image item">
-                <img class="carousel-img"  src="{% static "images/palmtree.jpg" %}" alt="palm tree">
-                <div class="carousel-caption">
-                    <h3>Blue</h3>
-                </div>
-            </figure>
-            <figure class="carousel-image item">
-                <img class="carousel-img"  src="{% static "images/bauhinia.jpg" %}" alt="bauhinia">
-                <div class="carousel-caption">
-                    <h3>Purple</h3>
-                </div>
-            </figure>
-            </div>
-
+                <figure class="carousel-image item active">
+                    <img class="carousel-img"  src="{% static 'images/strawberry.jpg' %}" alt="strawberry">
+                    <div class="carousel-caption">
+                        <h3>Red</h3>
+                    </div>
+                </figure>
+                <figure class="carousel-image item">
+                    <img class="carousel-img" src="{% static 'images/birdofparadise.jpg' %}" alt="birdofparadise">
+                    <div class="carousel-caption">
+                        <h3>Orange</h3>
+                    </div>
+                </figure>
+                <figure class="carousel-image item">
+                    <img class="carousel-img" src="{% static 'images/sunflower.jpg' %}" alt="sunflower">
+                    <div class="carousel-caption">
+                        <h3>Yellow</h3>
+                    </div>
+                </figure>
+                <figure class="carousel-image item">
+                    <img class="carousel-img" src="{% static 'images/cacti.jpg' %}" alt="cacti">
+                    <div class="carousel-caption">
+                        <h3>Green</h3>
+                    </div>
+                </figure>
+                <figure class="carousel-image item">
+                    <img class="carousel-img" src="{% static 'images/palmtree.jpg' %}" alt="palm tree">
+                    <div class="carousel-caption">
+                        <h3>Blue</h3>
+                    </div>
+                </figure>
+                <figure class="carousel-image item">
+                    <img class="carousel-img" src="{% static 'images/bauhinia.jpg' %}" alt="bauhinia">
+                    <div class="carousel-caption">
+                        <h3>Purple</h3>
+                    </div>
+                </figure>
             </div>
         </div>
         <a class="left carousel-control" href="#carousel-index" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
         </a>
         <a class="right carousel-control" href="#carousel-index" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
         </a>
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-3 display panel panel-default">
         <div class="panel-body section-one">
             <h3>Add a drop of Color to your life</h3>
             <br>
             <p>We hope that our images will add a 'Drop of Colour' to your rooms, to your life and world. 
-            We really enjoy the prints we make and are keen on supporting up and coming artists with their work.  
-            We provide A4, A3 and A2 sized beautiful giclée prints in a range of photographic images. 
-            <br><br>
-            Enjoy and Happy Shopping!
-            <br><br>
-            <p class="signature">Spectrum Ltd</p>
+                We really enjoy the prints we make and are keen on supporting up and coming artists with their work.  
+                We provide A4, A3 and A2 sized beautiful giclée prints in a range of photographic images. 
+                <br><br>
+                Enjoy and Happy Shopping!
+                <br><br>
             </p>
+            <p class="signature">Spectrum Ltd</p>
         </div>
     </div>
 </div>
-
-<a href="{% url 'get_review' %}"><h3>Our Customer Reviews</h3></a>
-<div class= "row row-flex">
-{% for review in review %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+<a href="{% url 'get_review' %}">
+    <h3>Our Customer Reviews</h3>
+</a>
+<div class= "container-fluid row row-flex">
+    {% for review in review %}
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
         <div class="review-panel">
-            <div class="col-md-6 col-sm-6 text-center">
-                <p><div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
-                <p><span class="boldtext">Product:</span> {{ review.product }}</p>
-                 {% if review.image == "" %}
+            <div class="col-xs-5 col-sm-6 col-md-5 col-lg-5 text-center">
+                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
+                <div class="boldtext">Product: {{ review.product }}</div>
+                {% if review.image == "" %}
                 {% else %}
-                <p><span class="boldtext">{{ review.author }} image:</span> <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
+                <br>
+                <div class="boldtext">{{ review.author }} image:</div>
+                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
+                <br>
                 {% endif %}            
             </div>
-            <div class="col-md-6 col-sm-6">
-                <a href="{% url 'review_detail' review.id %}"><h3>{{ review.title }}</h3></a>
+            <div class="col-xs-6 col-xs-offset-1 col-sm-5 col-md-6 review-text">
+                <a href="{% url 'review_detail' review.id %}">
+                    <h3>{{ review.title }}</h3>
+                </a>
                 <div class="row">
-                    <div class="col-xs-9">
+                    <div class="col-xs-12">
                         <p><span class="boldtext">Author:</span>{{ review.author }}</p>
-                        <p><span class="boldtext">Rating:</span><p class="rating">{{ review.rating }}</p></p>
-                        <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>                            
+                        <p><span class="boldtext">Rating:</span>
+                        <p class="rating">{{ review.rating }}</p>
+                        <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
-
-<a href="{% url 'products' %}"><h3>Our Images</h3></a>
-<div class= "row row-flex">
-{% for product in product %}
-<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-    <div class="panel-body">
-        <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>        
-        <a href="{% url 'products' %}"><h3>{{ product.name }}</h3></a>
-        <p class="product-description">{{ product.description }}</p>
-        <p><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ product.price }}</p>
+<a href="{% url 'products' %}">
+    <h3>Our Images</h3>
+</a>
+<div class= "container-fluid row row-flex">
+    {% for product in product %}
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+            <a href="{% url 'products' %}">
+                <h3>{{ product.name }}</h3>
+            </a>
+            <p class="product-description">{{ product.description }}</p>
+            <p><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ product.price }}</p>
+        </div>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}

@@ -17,31 +17,37 @@
         {% for product in products %}
         <option value="{{ product.name }}">{{ product.name }}</option>
         {% endfor %}
-    </select>   
+    </select>
     <button class="btn btn-info filter-btn" type="submit"><i class=" fa fa-search"></i></button>
 </form>
 <br>
-<div class= "row row-flex">
-{% for review in review %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+<div class="container row row-flex">
+    {% for review in review %}
+    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
         <div class="review-panel">
-            <div class="col-md-6 col-sm-6 text-center">
-                <p><div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
-                <p><span class="boldtext">Product:</span> {{ review.product }}</p>
+            <div class="col-xs-5 col-sm-6 col-md-5 col-lg-5 text-center">
+                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
+                <div class="boldtext">Product: {{ review.product }}</div>
                 {% if review.image == "" %}
                 {% else %}
-                <p><span class="boldtext">{{ review.author }} image:</span> <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
+                <br>
+                <div class="boldtext">{{ review.author }} image:</div>
+                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
+                <br>
                 {% endif %}
             </div>
-            <div class="col-md-6 col-sm-6">
-                <a href="{% url 'review_detail' review.id %}"><h3>{{ review.title }}</h3></a>
+            <div class="col-xs-6 col-xs-offset-1 col-sm-5 col-md-6 col-lg-6 review-text">
+                <a href="{% url 'review_detail' review.id %}">
+                    <h3>{{ review.title }}</h3>
+                </a>
                 <div class="row">
-                    <div class="col-xs-9">
-                        <p><span class="boldtext">Author:</span>{{ review.author }}</p>
-                        <p><span class="boldtext">Rating:</span><p class="rating">{{ review.rating }}</p></p>
+                    <div class="col-xs-12">
+                        <p><span class="boldtext">Author:</span> {{ review.author }}</p>
+                        <p><span class="boldtext">Rating:</span>
+                        <p class="rating"> {{ review.rating }}</p>
                         <p><span class="boldtext">Review:</span> {{ review.content|truncatewords:30 }}</p>
                         <p><a href="{% url 'review_detail' review.id %}" class="btn btn-info">Read more</a></p>
-                        <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>                            
+                        <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>
                         <p><span class="boldtext">Views:</span> {{ review.views }}</p>
                     </div>
                 </div>
@@ -51,10 +57,9 @@
     <br>
     {% empty %}
     <br>
-    <div class="col-md-6 col-sm-6">
-    <p>Sorry there are currently no reviews for the selected product.{% if user.is_authenticated %} Please feel free to <a href="{% url 'new_review' %}">add a review here.</a>{% endif %}</p>
+    <div class="col-xs-6 col-sm-12">
+        <p>Sorry there are currently no reviews for the selected product.{% if user.is_authenticated %} Please feel free to <a href="{% url 'new_review' %}">add a review here.</a>{% endif %}</p>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
-
 {% endblock %}

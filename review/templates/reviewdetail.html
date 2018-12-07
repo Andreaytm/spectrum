@@ -1,43 +1,49 @@
 {% extends 'base.html' %}
 {% block title %} - Reviews{% endblock %}
-
 {% block content %}
 <h1>{{ review.title }}</h1>
-<div class= "row row-flex">
+<div class= "container-fluid row row-flex">
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-    <div class="review-panel">
-        <div class="col-md-6 col-sm-6 text-center">
-            <p><div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div></p>
-            {% if review.image == "" %}
-            {% else %}
-            <p><span class="boldtext">{{ review.author }} image:</span> <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div></p>
-            {% endif %}        
-            
-        </div>
-        <div class="col-sm-6 col-md-6">
-            <div class="row">
-                 <div class="col-xs-9">
-                    <h3>{{ review.product }}</h3>
-                    <p><span class="boldtext">Author:</span>{{ review.author }}</p>
-                    <p><span class="boldtext">Review:</span>{{ review.content }}</p>
-                    <p><span class="boldtext {{ review.rating }}">Rating:</span><p class="rating">{{ review.rating }}</p></p>
-                    <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>                            
-                    <p><span class="boldtext">Views:</span> {{ review.views }}</p>
-                    <br>
+        <div class="review-panel">
+            <div class="col-md-6 col-sm-6 text-center">
+                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
+                {% if review.image == "" %}
+                {% else %}
+                <div class="boldtext">{{ review.author }} image:</div>
+                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
+                {% endif %}        
+            </div>
+            <br>
+            <div class="col-sm-6 col-md-6">
+                <div class="row">
+                    <div class="col-xs-9">
+                        <h3>{{ review.product }}</h3>
+                        <p><span class="boldtext">Author:</span>{{ review.author }}</p>
+                        <p><span class="boldtext">Review:</span>{{ review.content }}</p>
+                        <p><span class="boldtext {{ review.rating }}">Rating:</span>
+                        <p class="rating">{{ review.rating }}</p>
+                        </p>
+                        <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>
+                        <p><span class="boldtext">Views:</span> {{ review.views }}</p>
+                        <br>
+                    </div>
                 </div>
             </div>
+            <br>
+            <div class='review.buttons'>
+                <br>
+                <p><a  href="{% url 'get_review' %}" class="btn btn-info col-xs-12 col-md-4">Back to Review</a></p>
+                <br>
+                {% if user.is_authenticated and user == review.author %}
+                <p><a href="{% url 'edit_review' review.id %}" class="btn btn-primary col-xs-12 col-md-4">Edit Review</a></p>
+                {% endif %}
+                <br>
+                {% if user.is_superuser or user.is_authenticated and user == review.author %}
+                <p><a href="{% url 'delete_review' review.id %}" class="btn btn-danger col-xs-12 col-md-4">Delete Review</a></p>
+                {% endif %}
+            </div>
+            <br>
         </div>
-        <p><a  href="{% url 'get_review' %}" class="btn btn-info col-xs-6 col-md-4">Back to Review</a></p>
-        <br>
-        {% if user.is_authenticated and user == review.author %}
-        <p><a href="{% url 'edit_review' review.id %}" class="btn btn-primary col-xs-6 col-md-4">Edit Review</a></p> 
-        {% endif %}
-        <br>
-        {% if user.is_superuser or user.is_authenticated and user == review.author %}
-        <p><a href="{% url 'delete_review' review.id %}" class="btn btn-danger col-xs-6 col-md-4">Delete Review</a></p>
-        {% endif %}
-        <br>
     </div>
-    </div>
-    </div>
+</div>
 {% endblock %}

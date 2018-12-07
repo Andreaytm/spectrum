@@ -1,25 +1,22 @@
 {% extends 'base.html' %}
-
 {% load bootstrap_tags %}
-
 {% block title %}- Registration{% endblock %}
-
 {% block content %}  
 <h1>Registration Page</h1>
 <br>
 <p>If you already have an account, you can <a href="{% url 'login' %}">sign in</a></p>
 <br>
-<legend>User Account Details</legend>
+<h3>User Account Details</h3>
 <form method="POST">
-{% csrf_token %}
-{{ registration_form | as_bootstrap }}
-<br>
-<br>
-<legend>Address Details</legend>
-<br>
-<p>Please note these details will be saved as your delivery address on your profile page</p>
-<br>
-{{ address_form | as_bootstrap }}
-<button type="submit" class="btn btn-info">Register</button>
+    {% csrf_token %}
+    {{ registration_form | as_bootstrap }}
+    <br>
+    <br>
+    <h3>Address Details</h3>
+    <br>
+    <p>Please note these details will be saved as your delivery address on your profile page</p>
+    <br>
+    {{ address_form | as_bootstrap }}
+    <button type="submit" class="btn btn-info">Register</button>
 </form>
 {% endblock %}
