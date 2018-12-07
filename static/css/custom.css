@@ -1,18 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
+@import url('https://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700|Roboto:100,200,300,400,500,600,700');
+
+/* ----------------------------------Headings & Nav*/
+
+/* navbar */
+.navbar {
+    background-image:linear-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
+    background-image:-webkit-linear-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
+    background-image:-moz-linear-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
+    background-image:-o-linear-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
+    /* for early chrome and safari*/
+    background-image:-webkit-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
+    border: 0;
+}
+
+/* dropdown nav menu */
+.dropdown-menu {
+    background-color: #000;
+}
+
+.dropdown-menu li a {
+    color: #c9c9c9;
+}
+
+.navbar-default .navbar-brand {
+    font-family: 'Kaushan Script', cursive;
+    font-size: 30px;
+}
+
+nav {
+    font-family: 'Kaushan Script', cursive;
+}
+
+h1, h2 {
+    color: black;
+    font-family: 'Kaushan Script', cursive;
+
+}
+
+
+/* searchbar */
+.search-btn,
+.search-btn:hover {
+    height: 30px;
+    font-size: 12px;
+    background-color: transparent;
+    background-image: none;
+    border: none;
+}
+
+.search-input {
+    margin: 0 10px;
+    height: 30px;
+    background-color: #c9c9c9;
+    color: #fff;
+}
+
+/* ----------------------------------Special Paddings/Margins/Text*/
+.signature {
+    font-family: 'Kaushan Script', cursive;
+    color: black;
+    font-size: 20px;
+
+}
+
+h3 {
+    color: indigo;
+}
+
 body {
-    font-family: Arial;
-    padding-top: 100px;
-}
-
-footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    border-top: 1px solid #ededed;
-    color: #A9A9A9;
-}
-
-.icon-bar {
-    background-color: #fff;
+    font-family: Roboto;
+    padding-top: 60px;
+    font-size: 14px;
 }
 
 .accountform {
@@ -24,28 +83,139 @@ footer {
     padding-right: 9px;
     -webkit-border-radius: 9px;
     -moz-border-radius: 9px;
+    -o-border-radius: 9px;
     border-radius: 9px;
 }
 
-.label-warning[href],
-.badge-warning[href] {
-    background-color:  #c67605;
+/* ----------------------------------Footer*/
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid #ccc;
+    color: #909090;
 }
 
+.uppercase general-sub:hover { 
+     text-decoration: none;   
+}
+
+.soc-link {
+   font-size: 18px;
+}
+
+.soc-links-title {
+    color: #622268;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.footer-details{
+    text-decoration: none;
+}
+
+.fa-arrow-circle-up {
+    font-size: 30px;
+    float: right;
+}
+
+/* ----------------------------------Hover.css*/
+
+/* navbar */
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-nav .open a, 
+.navbar-default .navbar-nav .open a:hover, 
+.navbar-default .navbar-nav .open a:focus,
+.navbar-default .navbar-nav li a:hover, 
+.navbar-default .navbar-nav li a:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.hvr-soc-link-red:hover {
+   color:#ff0000;
+}
+
+.hvr-soc-link-orange:hover {
+    color:#ffad00;
+}
+
+.hvr-soc-link-yellow:hover {
+    color:#ffff00;
+}
+
+.hvr-soc-link-green:hover {
+    color:#14ff00;
+}
+
+.hvr-soc-link-indigo:hover {
+    color:#622268;
+}
+
+.hvr-soc-link-violet:hover {
+    color:#ee9ef5;
+}
+
+/* ----------------------------------Carousel*/
+
+img {
+    margin: 0 auto;	
+    padding: 0;
+}
+
+.carousel-caption h3 {
+    color: white;
+}
+
+#carousel-index {
+	width: 100%;
+	max-height: 400px;
+}
+/* ----------------------------------Profile*/
+
+.order-profile-info{
+    margin: 20px;
+}
+
+.product-profile {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 300px; 
+    height: 300px;
+    margin: 0 auto;
+}
+
+.panel-body-profile {
+    height: 100%;
+    border: 1px solid #ddd;
+    margin: 10px;
+}
+/* ----------------------------------Product*/
+.review-product,
+.product-profile,
 .product {
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
-    width: 150px; 
-    height: 150px;
     margin: 0 auto;
 }
-
-caption p {
-    word-wrap: break-word;
+.product-profile,
+.product {
+    width: 200px; 
+    height: 200px;
 }
 
-.row.row-flex {
+.review-product{
+    height: 130px;
+    width: 130px;
+}
+
+.product-description {
+    min-height: 40px;
+}
+
+.row-flex {
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
@@ -59,8 +229,151 @@ caption p {
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
+    display: inline-grid;
 }
 
-.product-description {
-    min-height: 40px;
+/* sort products menu */
+.dropdown { 
+    list-style-type: none;
 }
+
+/* ----------------------------------Review*/
+
+.review-panel {
+    border: 1px solid #c9c9c9;
+    height: 100%;
+    width: auto;
+    padding: 3px;
+    overflow: hidden;
+}
+
+.rating {
+    font-size: 25px;
+    color: #ffad00; 
+
+}
+
+.review-text {
+    word-wrap: break-word;
+}
+
+/*search reviews*/
+.filter-btn {
+    height: 30px;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    float: left;
+    background: none;
+    background-color: black;
+    border-radius: 0px;
+}
+
+select { 
+    height: 30px;
+    float: left;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+input[type="file"] {
+    height: auto;
+}
+
+.form-control {
+    margin-bottom:20px;
+}
+
+/*mobile------------------*/
+
+.navbar-default .navbar-collapse, 
+.navbar-default .navbar-form {
+    border: none;
+}
+
+.navbar-default .navbar-toggle{
+    border-color: white;
+}
+
+/* ----------------------------------Media Queries*/
+
+
+/*------------------------ lg= large desktop/laptop */
+@media(min-width:1200px) {
+    
+    /* products */
+    .product {
+        width: 300px; 
+        height: 300px;
+    }
+    
+    .review-product{
+        width: 150px; 
+        height: 150px;
+    }
+    
+    .product-profile,
+    .product {
+        width: 300px; 
+        height: 200px;
+    }
+    
+    .product-description {
+        min-height: 40px;
+    }
+    
+    .row-flex {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    
+    .panel-default {
+        border-color: transparent;
+        padding: 0 10px;
+    }
+    
+    .panel-body {
+        height: 100%;
+        border: 1px solid #ddd;
+        display: inline-grid;
+    }
+    
+    /* sort products menu */
+    .dropdown { 
+        list-style-type: none;
+    }
+        
+    /*Carousel*/
+    img {
+    margin: 0 auto;	
+    padding: 0;
+    }
+
+    .carousel-caption h3 {
+        color: white;
+    }
+    
+    #carousel-index {
+    	margin: 0 auto;	
+    	width: 100%;
+    	max-height: 400px;
+    	overflow: hidden;
+    }
+
+}
+/*------------------------ md =landscape tablets med desktop & iPad landscape*/
+/*@media(min-width:992px) and (max-width:1199px)*/
+
+/*------------------------ sm =tablet & small desktop & iPad portrait*/
+/*@media(min-width:769px) and (max-width:991px) and (max-width:767px) {*/
+
+
+/*------------------------ xs =landscape phone and portrait tablet 
+(max-width:768px default sizing of bootstrap)*/
+
+/*for IE10+ screens*/
+/*@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none){
+    
+}*/
