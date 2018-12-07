@@ -45,7 +45,7 @@
                         <p><span class="boldtext">Author:</span> {{ review.author }}</p>
                         <p><span class="boldtext">Rating:</span>
                         <p class="rating"> {{ review.rating }}</p>
-                        <p><span class="boldtext">Review:</span> {{ review.content|truncatewords:30 }}</p>
+                        <p>{{ review.content|truncatechars:100 }}</p>
                         <p><a href="{% url 'review_detail' review.id %}" class="btn btn-info">Read more</a></p>
                         <p><span class="boldtext">Published on:</span> {{ review.published_date }}</p>
                         <p><span class="boldtext">Views:</span> {{ review.views }}</p>

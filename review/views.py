@@ -4,6 +4,7 @@ from .models import Review
 from .forms import ReviewForm 
 from django.http import HttpResponseRedirect
 from products.models import Product
+from django.contrib import messages
 
 def get_review(request):
     """
@@ -49,4 +50,5 @@ def create_or_edit_review(request, pk_review=None):
 def delete_review(request, pk_review):
     review = get_object_or_404(Review, pk=pk_review)
     review.delete()
+    messages.error(request, "Your review has been successfully deleted")
     return HttpResponseRedirect('/')
