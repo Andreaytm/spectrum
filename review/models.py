@@ -19,7 +19,7 @@ class Review(models.Model):
         (three_stars, '3 Stars'),
         (two_stars, '2 Stars'),
         (one_star, '1 Star'),)
-     
+    
     product = models.ForeignKey(Product, related_name="products", on_delete=models.DO_NOTHING, default="")
     author = models.ForeignKey(User, blank=True, null=True)
     title = models.CharField(max_length=200)

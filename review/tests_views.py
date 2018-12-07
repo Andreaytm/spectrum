@@ -51,7 +51,7 @@ class ReviewTestViews(TestCase):
             rating="five_stars", 
             image="reviewimage.jpg")
             
-        response=self.client.get("/reviews/{0}/detail/".format(review.id))
+        response=self.client.get("/reviews/{0}/".format(review.id))
 
     def test_get_specific_review_detail_page(self):
         product1= Product.objects.create(
