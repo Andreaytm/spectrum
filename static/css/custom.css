@@ -200,6 +200,7 @@ img {
     background-repeat: no-repeat;
     margin: 0 auto;
 }
+
 .product-profile,
 .product {
     width: 200px; 
@@ -244,7 +245,8 @@ img {
     height: 100%;
     width: auto;
     padding: 3px;
-    overflow: hidden;
+    word-wrap: break-word;
+
 }
 
 .rating {
@@ -307,7 +309,7 @@ input[type="file"] {
         width: 300px; 
         height: 300px;
     }
-    
+  
     .review-product{
         width: 150px; 
         height: 150px;
@@ -363,17 +365,4 @@ input[type="file"] {
     }
 
 }
-/*------------------------ md =landscape tablets med desktop & iPad landscape*/
-/*@media(min-width:992px) and (max-width:1199px)*/
 
-/*------------------------ sm =tablet & small desktop & iPad portrait*/
-/*@media(min-width:769px) and (max-width:991px) and (max-width:767px) {*/
-
-
-/*------------------------ xs =landscape phone and portrait tablet 
-(max-width:768px default sizing of bootstrap)*/
-
-/*for IE10+ screens*/
-/*@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none){
-    
-}*/
