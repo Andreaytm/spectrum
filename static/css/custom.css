@@ -101,7 +101,7 @@ footer {
 }
 
 .soc-link {
-   font-size: 18px;
+   font-size: 30px;
 }
 
 .soc-links-title {
@@ -113,9 +113,27 @@ footer {
     text-decoration: none;
 }
 
-.fa-arrow-circle-up {
-    font-size: 30px;
+/* ----------------------------------toTopBtn*/
+
+
+#toTopBtn {
     float: right;
+    font-size: 30px;
+    display: none;
+	position: fixed;
+	right: 50px;
+	bottom: 80px;
+	width: 40px;
+	height: 40px;
+	background-color: white;
+	color: black;
+	border: none;
+	border-radius: 20px;
+	z-index: 1;
+}
+
+#toTopBtn:hover {
+	color: indigo;
 }
 
 /* ----------------------------------Hover.css*/
@@ -191,7 +209,7 @@ img {
     border: 1px solid #ddd;
     margin: 10px;
 }
-/* ----------------------------------Product*/
+/* ----------------------------------Products*/
 .review-product,
 .product-profile,
 .product {
@@ -238,6 +256,44 @@ img {
     list-style-type: none;
 }
 
+.filter-color {
+    float: right;
+    border-style: none;
+    border-radius: 20px;
+    color: white;
+    width: 80px;
+    padding: 2px;
+    text-align: center;
+}
+
+.filter-color:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.red.filter-color {
+    background: red;
+}
+
+.orange.filter-color {
+    background: orange;
+}
+
+.yellow.filter-color {
+    background: yellow;
+}
+
+.green.filter-color {
+    background: green;
+}
+
+.blue.filter-color {
+    background: blue;
+}
+
+.purple.filter-color {
+    background: purple;
+}
 /* ----------------------------------Review*/
 
 .review-panel {
@@ -363,6 +419,10 @@ input[type="file"] {
     	max-height: 400px;
     	overflow: hidden;
     }
-
+    /*Footer*/
+    
+    .soc-link {
+       font-size: 18px;
+    }
 }
 

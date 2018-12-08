@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load bootstrap_tags %}
+
 {% block title %} - Our Images{% endblock %}
 {% block content %}
 <h1>Our Images</h1>
@@ -29,6 +31,10 @@
             <h3>{{ product.name }}</h3>
             <br>
             <p class="product-description">{{ product.description }}</p>
+            <br>
+            <p class="product-size">Size: {{ product.size }}</p>
+            <br>
+            <p class="product-tags">Tags: {{ product.tags }}</p>
             <br>
             <p>Image: © Andrea Ma</p>
             <p class="price"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ product.price }}</p>
