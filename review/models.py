@@ -7,11 +7,11 @@ class Review(models.Model):
     """
     A single review
     """
-    five_stars= '*****'
-    four_stars= '****'
-    three_stars= '***'
-    two_stars= '**'
-    one_star= '*'
+    five_stars= '★★★★★'
+    four_stars= '★★★★'
+    three_stars= '★★★'
+    two_stars= '★★'
+    one_star= '★'
     
     RATING_CHOICES = (
         (five_stars, '5 Stars'),
