@@ -1,5 +1,5 @@
 from django.conf.urls import url 
-from .views import do_search, filter_product_name, sort_product_a_z, sort_product_z_a, sort_asc_cost, sort_desc_cost, filter_product_a2, filter_product_a3, filter_product_a4
+from .views import do_search, filter_product_name, sort_product_a_z, sort_product_z_a, sort_asc_cost, sort_desc_cost, filter_product_a2, filter_product_a3, filter_product_a4, filter_product_by_red, filter_product_by_orange, filter_product_by_yellow, filter_product_by_green,filter_product_by_blue, filter_product_by_purple
 
 urlpatterns =[
     url(r'^$', do_search, name='search'),
@@ -10,5 +10,11 @@ urlpatterns =[
     url(r'^sort-desc-cost/$', sort_desc_cost, name='sort-desc-cost'),
     url(r'^filter_product_a4/$', filter_product_a4, name='filter_product_a4'),
     url(r'^filter_product_a3/$', filter_product_a3, name='filter_product_a3'),
-    url(r'^filter_product_a2/$', filter_product_a2, name='filter_product_a2')
+    url(r'^filter_product_a2/$', filter_product_a2, name='filter_product_a2'),
+    url(r'filter_product_by_red/$', filter_product_by_red, name='filter_product_by_red'),
+    url(r'filter_product_by_orange/$', filter_product_by_orange, name='filter_product_by_orange'),
+    url(r'filter_product_by_yellow/$', filter_product_by_yellow, name='filter_product_by_yellow'),
+    url(r'filter_product_by_green/$', filter_product_by_green, name='filter_product_by_green'),
+    url(r'filter_product_by_blue/$', filter_product_by_blue, name='filter_product_by_blue'),
+    url(r'filter_product_by_purple/$', filter_product_by_purple, name='filter_product_by_purple'),
     ]

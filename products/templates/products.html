@@ -23,6 +23,16 @@
         <li><a href="{% url 'filter_product_a2' %}">Show all A2 Prints</a></li>
     </ul>
 </div>
+<br>
+<div class="filter-color">
+    <a href="{% url 'filter_product_by_red' %}" class="red filter-color">Red</a>
+    <a href="{% url 'filter_product_by_orange' %}" class="orange filter-color">Orange</a>
+    <a href="{% url 'filter_product_by_yellow' %}" class="yellow filter-color">Yellow</a>
+    <a href="{% url 'filter_product_by_green' %}" class="green filter-color">Green</a>
+    <a href="{% url 'filter_product_by_blue' %}"class="blue filter-color">Blue</a>
+    <a href="{% url 'filter_product_by_purple' %}" class="purple filter-color">Purple</a>
+</div>
+<br>
 <div class= "container-fluid row-flex row">
     {% for product in products %}
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
