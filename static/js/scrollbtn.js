@@ -1,6 +1,6 @@
 /* adapted from www.w3schools.com */
 window.onscroll = function () {
-    scrollToTop()
+    scrollToTop();
 };
 
 function scrollToTop() {

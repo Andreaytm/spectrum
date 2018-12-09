@@ -135,7 +135,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+
 # AWS Storage Bucket
+AWS_DEFAULT_ACL = 'public-read'
 AWS_STORAGE_BUCKET_NAME = 'spectrum-ltd'
 AWS_S3_REGION_NAME = 'eu-west-2'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
