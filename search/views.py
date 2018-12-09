@@ -65,3 +65,15 @@ def filter_product_by_purple(request):
     products = Product.objects.filter(tags__icontains='purple')
     return render(request, "products.html", {"products" : products})
     
+def filter_product_by_white(request):
+    products = Product.objects.filter(tags__icontains='white')
+    return render(request, "products.html", {"products" : products})
+    
+def filter_product_by_black(request):
+    products = Product.objects.filter(tags__icontains='black')
+    return render(request, "products.html", {"products" : products})
+    
+def filter_product_by_pink(request):
+    products = Product.objects.filter(tags__icontains='pink')
+    return render(request, "products.html", {"products" : products})
+    

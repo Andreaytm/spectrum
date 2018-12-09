@@ -258,11 +258,11 @@ img {
 
 .filter-color {
     float: right;
+    display: inline-flex;
     border-style: none;
-    border-radius: 20px;
     color: white;
-    width: 80px;
-    padding: 2px;
+    padding: 4px;
+    margin: auto 1px;
     text-align: center;
 }
 
@@ -290,9 +290,21 @@ img {
 .blue.filter-color {
     background: blue;
 }
+.pink.filter-color {
+    background: pink;
+}
 
 .purple.filter-color {
     background: purple;
+}
+
+.white.filter-color {
+    background: white;
+    color: black;
+}
+
+.black.filter-color {
+    background: black;
 }
 /* ----------------------------------Review*/
 
