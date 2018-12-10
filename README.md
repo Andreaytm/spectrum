@@ -29,7 +29,7 @@ general browsing users who are potential customers who have browsed on to the si
 and authenticated users who are customer of the site. 
 As this is a range of individuals who could be of varying ages I have referred to them as just users.
 However this could be:
-- Jane, mum with 2 daughters looking to decorate her house and teen daughter's room with some prints.
+- Jane, mum with 2 daughters looking to decorate her house and daughter's room with some prints.
 - Ryan, restaurant owner, browsing for some prints for his new Caribbean styled restaurant.
 - Leanne, landlady of 3 properties searching for prints for her new flat.
 - Richard, up and coming artist specialising in abstract impressionistic paintings looking for a stockist for his new collection.
@@ -115,47 +115,50 @@ These features will require more development time.
 ## Technologies Used
 
 Essential Technologies:
-[Cloud 9](https://aws.amazon.com/cloud9/?origin=c9io) online code editor for development of the project
-CSS-for website styling
-[Django](https://www.djangoproject.com/)
-[Github](https://github.com/) for version control.
-HTML5-for basic markup language and provide semantic elements to webpage design.
-[jQuery](https://jquery.com/) to manage events and effects for enhanced user experience.
-JavaScript-for UI enhancements
+
+- [Cloud 9](https://aws.amazon.com/cloud9/?origin=c9io) online code editor for development of the project
+- CSS-for website styling
+- [Django](https://www.djangoproject.com/)
+- [Github](https://github.com/) for version control.
+- HTML5-for basic markup language and provide semantic elements to webpage design.
+- [jQuery](https://jquery.com/) to manage events and effects for enhanced user experience.
+- JavaScript-for UI enhancements
 
 Authentication:
+
 Use of Cross-Site Request Forgery (CSRF) tokens to mitigate CSRF attacks was used on all forms on the project.
-[STRIPE](https://stripe.com/gb) for authentication of payment for e-commerce functionality. 
-[Django Secret Key Generator](https://www.miniwebtool.com/django-secret-key-generator/) for generation of new SECRET_KEY.
+- [STRIPE](https://stripe.com/gb) for authentication of payment for e-commerce functionality. 
+- [Django Secret Key Generator](https://www.miniwebtool.com/django-secret-key-generator/) for generation of new SECRET_KEY.
 
 Deployment:
-[Gunicorn](https://gunicorn.org/)-A Python package, used for running HTTP servers on UNIX based operating systems and to connect to Heroku.
-[Heroku](https://www.heroku.com/) for deployment and hosting of project.
+
+- [Gunicorn](https://gunicorn.org/)-A Python package, used for running HTTP servers on UNIX based operating systems and to connect to Heroku.
+- [Heroku](https://www.heroku.com/) for deployment and hosting of project.
 
 SQL Database:
-[dj-database-url](https://pypi.org/project/dj-database-url/) - package allows connection to a database URL (eg Heroku Postgres)
-[Heroku Postgres](https://www.heroku.com/postgres)- cloud-based Postgres managed SQL database to use in deployment instead of sqlite3 for production.
-[Psycopg2](https://pypi.org/project/psycopg2/) - package to connect to Postgres databases
-[SQLite3 DB](https://docs.python.org/2/library/sqlite3.html) - the standard database on django using Django's ORM in development for local testing.
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - package allows connection to a database URL (eg Heroku Postgres)
+- [Heroku Postgres](https://www.heroku.com/postgres)- cloud-based Postgres managed SQL database to use in deployment instead of sqlite3 for production.
+- [Psycopg2](https://pypi.org/project/psycopg2/) - package to connect to Postgres databases
+- [SQLite3 DB](https://docs.python.org/2/library/sqlite3.html) - the standard database on django using Django's ORM in development for local testing.
 
 Storage:
-[Pillow](https://pypi.org/project/Pillow/) allows uploading of images through admin page.
-[Amazon Web Services (AWS)](https://aws.amazon.com/)
-- [S3 Storage](https://aws.amazon.com/s3/?nc2=type_a) used to store mediafiles (images) and staticfiles (JS, CSS, Font Awesome) on cloud-based storage.
-- [Identity and Access Management (IAM) Console](https://aws.amazon.com/iam/) to manage who can access the Amazon AWS services.
-- [Django-storages and Boto3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html) to connect to AWS S3 bucket
+- [Pillow](https://pypi.org/project/Pillow/) allows uploading of images through admin page.
+- [Amazon Web Services (AWS)](https://aws.amazon.com/)
+    - [S3 Storage](https://aws.amazon.com/s3/?nc2=type_a) used to store mediafiles (images) and staticfiles (JS, CSS, Font Awesome) on cloud-based storage.
+    - [Identity and Access Management (IAM) Console](https://aws.amazon.com/iam/) to manage who can access the Amazon AWS services.
+    - [Django-storages and Boto3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html) to connect to AWS S3 bucket
 
 Styling:
-[Django-Forms-Bootstrap](https://pypi.org/project/django-forms-bootstrap/) to allow usage of bootstrap in templates.
-[Bootstrap](https://getbootstrap.com/) for responsive simplistic layouts.
-[Font Awesome](https://fontawesome.bootstrapcheatsheets.com/) for styling and improved UI.
-[Favicon Generator](https://www.favicon-generator.org/) to create my own favicon for the website.
-[Pencil](https://pencil.evolus.vn/) for creation of wireframes.
+- [Django-Forms-Bootstrap](https://pypi.org/project/django-forms-bootstrap/) to allow usage of bootstrap in templates.
+- [Bootstrap](https://getbootstrap.com/) for responsive simplistic layouts.
+- [Font Awesome](https://fontawesome.bootstrapcheatsheets.com/) for styling and improved UI.
+- [Favicon Generator](https://www.favicon-generator.org/) to create my own favicon for the website.
+- [Pencil](https://pencil.evolus.vn/) for creation of wireframes.
 
 Testing:
-[FreeFormatter.com](https://www.freeformatter.com/) for formatting and indentation.
-[Coverage](https://coverage.readthedocs.io/en/v4.5.x/) for displaying test reports from Django unit tests.
-[Travis CI](http://travis-ci.org)allows for Continuous Integration, which runs tests on code every time it is pushed to GitHub.
+- [FreeFormatter.com](https://www.freeformatter.com/) for formatting and indentation.
+- [Coverage](https://coverage.readthedocs.io/en/v4.5.x/) for displaying test reports from Django unit tests.
+- [Travis CI](http://travis-ci.org)allows for Continuous Integration, which runs tests on code every time it is pushed to GitHub.
 
 
 ## Testing:
@@ -164,11 +167,11 @@ Testing STRIPE payments:
 - Tested that all fields requires completion prior to submission of form with exception of CVV as test cards do not require CVV entry)
 - Viewed testing on Stripe Dashboard to ensure that information passed through.
 
+
 Testing sending of emails via contact form: 
-```EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'```
+- ```EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'```
 - Tested initially on console to display email message.
 - Tested again via smtp to ensure that message goes through to emails.
-
 
 - Iterative testing has been included throughout the process of the project through observation of complex changes on localhost.
 - Checking syntax for errors against existing Code Institute learnt code.
@@ -183,31 +186,30 @@ Testing sending of emails via contact form:
 
 #### Coverage 
 
-Installation: 
+- Installation: 
 ```sudo pip3 install coverage``` 
-To run reports in terminal:
+- To run reports in terminal:
 ```coverage run manage.py test <app name>``` 
 or 
 ```coverage run --source=<app name> manage.py test```
-Then to display report on app in terminal:
+- Then to display report on app in terminal:
 ```coverage report```
-To display content in a html webpage:
+- To display content in a html webpage:
 ```coverage html```
 then go to **htmlcov** folder find index.html open and run the file in a new tab.
 
-% of Testing carried out and additional testing completed via BDD(Behavioural Driven Development) and additional manual testing.
-accounts = 73% = Tested template views as Django handles testing of authentication
-review = 90% = Tested CRUD (Create, Read, Update, Delete) functionality via BDD(Behavioural Driven Development) 
-
-contacts = 88% = Specific testing of send_mail was done via BDD (including display of HttpResponse error messages)
+A % of testing was carried out via coverage and additional testing completed via BDD(Behavioural Driven Development) and additional manual testing.
+- accounts = 73% = Tested template views as Django handles testing of authentication
+- review = 90% = Tested CRUD (Create, Read, Update, Delete) functionality via BDD(Behavioural Driven Development) 
+- contacts = 88% = Specific testing of send_mail was done via BDD (including display of HttpResponse error messages)
 by sending test emails and checking in gmail account. However can test that this is also working via unittest 
 as redirects to thanks instead of returning HttpResponse('Invalid header found') or blank contact form.
 
-cart = 58% = Test was mostly done via TDD and manual testing.
-search 52% = Testing of search bars and sorting done via BDD and manual testing.
-products = 93% = Did not test apps as the code is generated automatically by Django.
-home = 92% = Did not test apps as not required, as the code is generated automatically by Django.
-checkout = 80% = Testing of stripe payment done via use of test cards.
+- cart = 58% = Test was mostly done via TDD and manual testing.
+- search = approx 52% = Testing of search bars, filtering and sorting done via BDD and manual testing.
+- products = 93% = Did not test apps as the code is generated automatically by Django.
+- home = 92% = Did not test apps as not required, as the code is generated automatically by Django.
+- checkout = 80% = Testing of stripe payment done via use of test cards.
 
 In addition I did not test the urls as this was tested via manual testing.
 
@@ -252,28 +254,28 @@ the nav menu displays as a collapsed menu icon.
 
 
 ## Known Issues
-Stripe Payments - Solved
+**Stripe Payments - Solved**:
 Initially I thought I had issues with Stripe Payments and payment being accepted even if CVV field was empty. 
 I attempted solving with a required=True however this affected '4242' card being accepted.
 I later found out that test card '4242' does not need a CVV field to be filled in for the form to work.
 
-iPhone/iPad - Solved
+**iPhone/iPad - Solved**:
 Issues with dropdown menus in nav. I found out that nav dropdown menus require a href of "#" so to ensure it works in iPhone or iPad.
 This does not affect the overall functionality of the website. But is something that needs to be included for iPhone and iPad compatibility.
 
-Issue with flex-box in iPad affecting reviews and products displayed. Altered col-sm and col-md (for portrait and landscape views) 
+**Issue with flex-box in iPad**: this affected reviews and products displayed. Altered col-sm and col-md (for portrait and landscape views) 
 and added container-fluid to various templates. This also solved an issue I was experiencing with Firefox where the carousel on the main
 index page was 'jumping'.
 
-Browser - Solved
+**Browser - Solved**:
 Dropdown styling (reviews search) was differing across browsers, some of which were affecting icons being seen (dropdown arrow)
 I added some help-text to ensure that users will select from dropdown to search for a review and added a message in body should no results be returned.
 
-Browser- IE -Solved
+**Browser- IE -Solved** :
 Navbar was returning blue in IE whereas all other browsers returned the rainbow spectrum I had stylised. I later found out there was a typo
 in the css code which affected the rendering of the colours in IE but no other browser!
 
-Migration Issues -Solved
+**Migration Issues -Solved** :
 I had some migration issues during the development and deployment of the project. I used the following to update database where there were issues that could not be resolved.
 [Stack Overflow](https://stackoverflow.com/questions/42150499/how-do-i-delete-db-sqlite3-in-django-1-9-to-start-from-scratch)
 
@@ -285,35 +287,35 @@ I have noted below the differences of each of the project versions.
 #### Development Version
 - uses SQLite3 database which was standard of Django
 
-"""
-DATABASE = {
+```
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-""""
+```
 
-- storage of config var keys on env.py
-- uses Pillow and uploading of media files via admin dashboard
-- static files were kept in the project file structure
+- Storage of config var keys on env.py
+- Uses Pillow and uploading of media files via admin dashboard
+- Static files were kept in the project file structure
 
 ```ALLOWED_HOST = [os.environ.get('C9_HOSTNAME')]```
 
 - media and static files are currently stored via: 
 
-"""
+```
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-""""
+```
 
-Emails =
+- Emails
 
-"""
+```
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_USE_TLS = True
@@ -321,22 +323,22 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
-"""
+```
 
 #### Production/Deployed Version
-- uses Heroku Postgres database with dependencies of Psycopg2 and dj-database-url
+- Uses Heroku Postgres database with dependencies of Psycopg2 and dj-database-url.
 
-```DATABASE = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }```
+```DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }```
 
-- config vars keys were stored with Heroku including additional key of DISABLE_COLLECTSTATIC =1
-- uses AWS cloud-based storage of media and static files with dependencies of django-storages and Boto3
+- Config vars keys were stored with Heroku including additional key of **DISABLE_COLLECTSTATIC =1**.
+- Uses AWS cloud-based storage of media and static files with dependencies of django-storages and Boto3.
 
 ```ALLOWED_HOST = ['spectrum-ltd.herokuapp.com')]```
 
 - Media and static files are stored differently in Production/deployed version with 'storage' listed in 
 settings.py of 'INSTALLED_APPS'.
 
-"""
+```
 STATICFILES_LOCATION ='static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
@@ -350,27 +352,29 @@ DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 
 MEDIA_URL= "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-"""
+```
 
 ### Setting up Heroku
 I used Code Institute lessons for the deployment of the project.
 
 Heroku=
 I went to [Heroku](https://www.heroku.com/) to set up an app 'spectrum'
-Resources> add database **Postgres** choose 'HobbyDev Free'
+Resources> add database **Postgres** choose **'HobbyDev Free'**
 
 For use of Heroku Postgres:
-Cloud 9 =
+- Cloud 9 =
 ```sudo pip3 install dj-database-url``` package allows connection to a database URL. ```sudo pip3 install psycopg2```
-Create a requirements.txt file with all dependencies listed ```pip3 freeze > requirements.txt```
+- Create a requirements.txt file with all dependencies listed ```pip3 freeze > requirements.txt```
 **import dj_database_url** at top of settings.py file and change default sqlite3 database to be default dj_database_url
-**DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }**
+```DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }```
 Add DATABASE_URL config vars code to env.py 
 Make migrations to migrate all files to new database.
-"""
+
+```
 python3 manage.py makemigrations
 python3 manage.py migrate
-""""
+```
+
 Create new superuser via ```python3 manage.py createsuperuser``` and add username, email and password.
 This will be production database for deploying on Heroku
 
@@ -379,14 +383,14 @@ DATABASE_URL from Postgres Database
 Ensure Heroku has all Config Vars required = SECRET_KEY, STRIPE_SECRET, STRIPE_PUBLISHABLE, EMAIL_ADDRESS, EMAIL_PASSWORD, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 add DISABLE_COLLECTSTATIC and set to 1 this will disable staticfiles from being added to Heroku meaning can use AWS bucket.
 
-Deploy>GitHub> connect to repo = 'spectrum'
-Install gunicorn
-Ensure all dependencies are added to requirements.txt with command ```pip3 freeze > requirements.txt```
-Create and add a file called **Procfile** which contains text 'web: gunicorn spectrum.wsgi:application'
+- Deploy>GitHub> connect to repo = 'spectrum'
+- Install gunicorn
+- Ensure all dependencies are added to requirements.txt with command ```pip3 freeze > requirements.txt```
+- Create and add a file called **Procfile** which contains text 'web: gunicorn spectrum.wsgi:application'
 ```git add, git commit, git push```
-Heroku >deploy branch
+- Heroku >deploy branch
 
-Heroku >more >restart all dynos to ensure that the project is updated.
+- Heroku >more >restart all dynos to ensure that the project is updated.
 
 ## Credits
 - [Django Contact Form Tutorial: William S Vincent](https://wsvincent.com/django-contact-form/) the contact form which was adapted for this project
@@ -404,10 +408,14 @@ Tutors:
 - Haley Schafer
 - Neil McEwen
 - Nakita McCool
-Tiffany Snell for words of encouragement and general check-ups
-Mentor:
-- Jim Richmond
-Students on Code Institute on Slack: Simen Daehlin:@eventyret, Anthony Bonello: @bonello, Sarah Barron,
+- Tiffany Snell for words of encouragement and general check-ups
+
+- Mentor:
+    - Jim Richmond
+- Students on Code Institute on Slack: 
+    - Simen Daehlin:@eventyret 
+    - Anthony Bonello: @bonello
+    - Sarah Barron
 
 
 ## Getting this code up and running
@@ -427,14 +435,15 @@ and create a env.py file in the root of the project with this data.
 7. You will also need to remove 'storages' from INSTALLED_APPS in setttings.py 
 and change the location of static and media files to
 
-"""
+```
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-"""
+```
+
 8. To run the project on localhost, run the following in the Cloud9 terminal:
 ```python3 ~/workspace/manage.py runserver $IP:$C9_PORT"``` alternatively 
 you can add a shortcut by adding the following:  
