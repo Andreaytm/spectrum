@@ -21,10 +21,10 @@ to manage the shop online easily.
 - Wireframes
 
 [Features](#features)
-- [Existing Features](#existing_features)
-- [Enhancement Features](#enhancement features)
+- [Existing Features](#existing-features)
+- [Enhancement Features](#enhancement-features)
 
-[Technologies Used](#technologies_used)
+[Technologies Used](#technologies-used)
 - Essential Technologies
 - Authentication
 - Deployment
@@ -38,22 +38,22 @@ to manage the shop online easily.
 - Testing sending of emails
 - General Testing
 
-[Automated Testing](#automated_testing)
-- [Travis CI](#travis_ci)
+[Automated Testing](#automated-testing)
+- [Travis CI](#travis-ci)
 - [Coverage](#coverage)
 
-[Manual Testing](#manual_testing)
-- [Browser Testing](#browser_testing)
+[Manual Testing](#manual-testing)
+- [Browser Testing](#browser-testing)
 - [Device Testing](#device_testing)
 
-[Known Issues](#known_issues)
+[Known Issues](#known-issues)
 
 [Deployment](#deployment)
-- [Development Version vs Production/Deployed Version](#development_version_vs_production/deployed_version)
-    -[Development Version](#development_version) 
-    -[Production/Deployed Version](#produciton/deployed_version) 
+- [Development Version vs Production/Deployed Version](#development-version-vs-production/deployed-version)
+    -[Development Version](#development-version) 
+    -[Production/Deployed Version](#produciton/deployed-version) 
 
-[Setting up Heroku](#setting_up_heroku)
+[Setting up Heroku](#setting-up-heroku)
 
 [Credits](#credits)
 
@@ -61,7 +61,7 @@ to manage the shop online easily.
 
 [Acknowledgements](#acknowledgements)
 
-[Getting this code up and running](#getting_this_code_up_and_running)
+[Getting this code up and running](#getting-this-code-up-and-running)
 
 
 ## UX
