@@ -35,9 +35,11 @@ nav {
 h1, h2 {
     color: black;
     font-family: 'Kaushan Script', cursive;
-
 }
 
+.bold-text{
+    font-weight: bold;
+}
 
 /* searchbar */
 .search-btn,

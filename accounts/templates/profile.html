@@ -5,22 +5,22 @@
 <div class="col-sm-6 col-md-6">
     <h1>{{ user }}'s Profile</h1>
     <br>
-    <p>First Name: {{ user.first_name }}</p>
-    <p>Last Name: {{ user.last_name }}</p>
-    <p>Username: {{ user }}</p>
-    <p>Email: {{ user.email }}</p>
+    <div class="bold-text">First Name:</div> <p> {{ user.first_name }}</p>
+    <div class="bold-text">Last Name:</div> <p>  {{ user.last_name }}</p>
+    <div class="bold-text">Username: </div> <p> {{ user }}</p>
+    <div class="bold-text">Email:</div> <p>  {{ user.email }}</p>
 </div>
 <br>
 {% for address in address %}
 <div id="account-address" class="col-sm-6 col-md-6">
     <h3>Saved Address</h3>
-    <p>Full Name: {{ address.full_name }}</p>
-    <p>Address 1: {{ address.address1 }}</p>
-    <p>Address 2: {{ address.address2 }}</p>
-    <p>County: {{ address.county }}</p>
-    <p>Town/City: {{ address.town_or_city }}</p>
-    <p>Postcode: {{ address.postcode}}</p>
-    <p>Country: {{ address.country }}</p>
+    <div class="bold-text">Full Name:</div><p> {{ address.full_name }}</p>
+    <div class="bold-text">Address 1:</div><p> {{ address.address1 }}</p>
+    <div class="bold-text">Address 2:</div><p> {{ address.address2 }}</p>
+    <div class="bold-text">Town/City:</div><p> {{ address.town_or_city }}</p>
+    <div class="bold-text">County:</div><p> {{ address.county }}</p>
+    <div class="bold-text">Postcode:</div><p> {{ address.postcode}}</p>
+    <div class="bold-text">Country:</div><p> {{ address.country }}</p>
     <p class="col-sm-3"><a href="{% url 'edit_address' user.id %}" class="btn btn-info">Edit Address</a></p>
 {% endfor %}
     {% if product_count > 0 %}

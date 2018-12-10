@@ -13,6 +13,7 @@
 {% block title %}- Checkout{% endblock %}
 {% block content %}
 <h1>Checkout</h1>
+{% if product_count > 0 %}
 <div class = "row row-flex">
     {% for item in cart_items %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
@@ -43,19 +44,19 @@
     <div class="delivery-address">
         <br>
         <h3>Delivery address</h3>
-        Full Name:
+        <div class="bold-text">Full Name:</div>
         <p id="full_name">{{ address.full_name }}</p>
-        Address Line 1:
+        <div class="bold-text">Address Line 1:</div>
         <p id="address1">{{ address.address1}}</p>
-        Address Line 2:
+        <div class="bold-text">Address Line 2:</div>
         <p id="address2">{{ address.address2 }}</p>
-        County:
-        <p id="county">{{ address.county }}</p>
-        Town/City:
+        <div class="bold-text">Town/City:</div>
         <p id="town_or_city">{{ address.town_or_city }}</p>
-        Postcode:
+        <div class="bold-text">County:</div>
+        <p id="county">{{ address.county }}</p>
+        <div class="bold-text">Postcode:</div>
         <p id="postcode">{{ address.postcode }}</p>
-        Country:
+        <div class="bold-text">Country:</div>
         <p id="country">{{ address.country }}</p>
     </div>
     <p><a href="{% url 'edit_address' user.id %}" class="btn btn-info">Edit Address</a></p>
@@ -84,4 +85,10 @@
         </div>
     </form>
 </div>
+{% else %}
+<br>
+<div class="col-xs-12">
+    <p>Sorry you have no items in your cart to checkout. Please click <a href="{% url 'products' %}">here</a> to see our products.</p>
+</div>
+{% endif %}
 {% endblock %}
