@@ -2,5 +2,5 @@ language: python
 python:
 - "3.4"
 install: "pip install -r requirements.txt"
-scrip: 
+script: 
 - SECRET_KEY="example" ./manage.py test
