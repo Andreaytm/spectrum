@@ -1,6 +1,7 @@
-from django.conf.urls import url, include 
+from django.conf.urls import url, include
 from .views import logout, login, registration, user_profile, edit_address
 from accounts import url_reset
+
 
 urlpatterns = [
     url(r'^logout/$', logout, name="logout"),

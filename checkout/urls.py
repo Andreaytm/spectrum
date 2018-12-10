@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from .views import checkout
 
-urlpatterns =[
+
+urlpatterns = [
     url(r'^$', checkout, name='checkout'),
     ]

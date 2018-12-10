@@ -1,6 +1,7 @@
 from django.test import TestCase
 from products.models import Product
 
+
 class SearchTestViews(TestCase):
     def test_do_search_template(self):
         response = self.client.get("/products/")

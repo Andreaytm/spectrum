@@ -1,4 +1,4 @@
-#Django Contact Form taken and slightly adapted from:https://wsvincent.com/django-contact-form/
+# Django Contact Form taken and adapted from:https://wsvincent.com/django-contact-form/
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
@@ -7,8 +7,9 @@ from django.conf import settings
 from .forms import contactForm
 from .models import contact
 
-# Create your views here.
+
 email_address = settings.EMAIL_HOST_USER
+
 
 def contacts(request):
     """Allow user to send email to shop"""
@@ -23,10 +24,16 @@ def contacts(request):
             your_message = contact_form.cleaned_data['your_message']
 
             try:
-                fullmessage = "Your Message: \n" + your_message + "\n" + "\n" + "From: \n" +  "\n" + full_name + " \n " + "<" + your_email + ">"
+                fullmessage = "Your Message: \n" + your_message + "\n" + "\n" 
+                + "From: \n" + "\n" + full_name + " \n " + "<" + your_email + ">"
                 send_mail(subject, fullmessage, your_email, [email_address])
-                send_mail("Thank you for contacting Spectrum Ltd: " + subject, "Thank you for contacting Spectrum Ltd." + "\n" + "\n"  + "We value your opinion and thoughts." + "\n" + "\n" + "A customer representative will be in touch with you in the next 2 weeks." + "\n" +"\n" + "Please find below a copy of the message you sent to us for your information." + "\n" + "\n" + fullmessage, your_email, [your_email])
-
+                send_mail("Thank you for contacting Spectrum Ltd: " + subject, 
+                "Thank you for contacting Spectrum Ltd." + "\n" + "\n" 
+                + "We value your opinion and thoughts." + "\n" + "\n" 
+                + "We will be in touch with you in the next 2 weeks." 
+                + "\n" +"\n" 
+                + "Please find below a copy of your email for your information." 
+                + "\n" + "\n" + fullmessage, your_email, [your_email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found')
             return redirect('thanks')
@@ -34,6 +41,6 @@ def contacts(request):
             return HttpResponse('Make sure all fields are entered and valid.')
     return render(request, 'contacts.html', {"contact_form": contact_form})
 
+
 def thanks(request):
     return render(request, 'thanks.html')
-    

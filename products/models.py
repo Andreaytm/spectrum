@@ -1,16 +1,17 @@
 from django.db import models
 
+
 class Product(models.Model):
-    
-    A4= 'A4'
-    A3= 'A3'
-    A2= 'A2'
-    
+
+    A4 = 'A4'
+    A3 = 'A3'
+    A2 = 'A2'
+
     SIZE_CHOICES = (
         (A4, 'A4'),
         (A3, 'A3'),
         (A2, 'A2'),)
-        
+
     name = models.CharField(max_length=254, default='')
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
@@ -20,6 +21,6 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('name',)
-        
+ 
     def __str__(self):
         return self.name

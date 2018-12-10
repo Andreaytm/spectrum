@@ -8,7 +8,6 @@ from django.http import HttpResponseRedirect
 from checkout.models import OrderLineItem
 
 
-# Create your views here.
 @login_required
 def logout(request):
     """Log the user out"""
@@ -16,16 +15,18 @@ def logout(request):
     messages.success(request, "You have successfully been logged out!")
     return redirect(reverse('index'))
 
+
 def login(request):
     """Return a Login page"""
     if request.user.is_authenticated:
         return redirect(reverse('index'))
-    if request.method ==  "POST":
+    if request.method == "POST":
         login_form = UserLoginForm(request.POST)
-        
+
         if login_form.is_valid():
-            user=auth.authenticate(username=request.POST['username'], 
-            password=request.POST['password'])
+            user = auth.authenticate(
+                username=request.POST['username'],
+                password=request.POST['password'])
 
             if user:
                 auth.login(user=user, request=request)
@@ -33,56 +34,63 @@ def login(request):
                 return redirect(reverse('index'))
 
             else:
-                login_form.add_error(None, "Your username or password is incorrect")
-    else: 
+                login_form.add_error(
+                    None, "Your username or password is incorrect")
+    else:
         login_form = UserLoginForm()
     return render(request, 'login.html', {"login_form": login_form})
+
 
 def registration(request):
     """Render the registration page"""
     if request.user.is_authenticated:
-        return redirect(reverse ('index'))
-        
-    if request.method =="POST":
+        return redirect(reverse('index'))
+
+    if request.method == "POST":
         registration_form = UserRegistrationForm(request.POST)
         address_form = AddressForm(request.POST, request.FILES)
 
-    
         if registration_form.is_valid()and address_form.is_valid():
             user = registration_form.save()
             address = address_form.save(commit=False)
             address.user = user
             address.save()
-            
-            user=auth.authenticate(username=request.POST['username'],
-            password=request.POST['password1'])
-        
+
+            user = auth.authenticate(
+                username=request.POST['username'],
+                password=request.POST['password1'])
+
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully registered")
                 return redirect(reverse('index'))
-            else:  
-                messages.error(request, "Unable to register your account at this time")
-    else:        
+            else:
+                messages.error(
+                    request, "Unable to register your account at this time")
+    else:
         registration_form = UserRegistrationForm()
         address_form = AddressForm()
     return render(request, 'registration.html', {
         "registration_form": registration_form, 'address_form': address_form})
 
+
 @login_required
 def user_profile(request):
     """ The user's profile page"""
-    user= request.user
+    user = request.user
     address = Address.objects.filter(user=user)
     orders = OrderLineItem.objects.filter(user=user).order_by('-id')
-    return render(request, 'profile.html', {'address': address, 'orders': orders}) 
+    return render(request, 'profile.html', {
+        'address': address, 'orders': orders})
+
 
 def edit_address(request, user_id=None):
-    user = get_object_or_404(User, pk=user_id) 
+    user = get_object_or_404(User, pk=user_id)
     address = get_object_or_404(Address, user=user) if user else None
 
     if request.method == "POST":
-        addressform = AddressForm(request.POST, request.FILES, instance=address)
+        addressform = AddressForm(
+            request.POST, request.FILES, instance=address)
         if addressform.is_valid():
             address = addressform.save(commit=False)
             address.user = request.user
@@ -91,4 +99,3 @@ def edit_address(request, user_id=None):
     else:
         addressform = AddressForm(instance=address)
         return render(request, 'address.html', {'addressform': addressform})
-            

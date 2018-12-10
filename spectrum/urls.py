@@ -27,6 +27,7 @@ from review import urls as urls_review
 from home import urls as urls_home
 from .settings import MEDIA_ROOT
 
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
@@ -38,5 +39,5 @@ urlpatterns = [
     url(r'^checkout/', include(urls_checkout)),
     url(r'^contacts/', include(urls_contacts)),
     url(r'^reviews/', include(urls_review)),
-    url(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

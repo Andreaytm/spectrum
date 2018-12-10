@@ -11,14 +11,14 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#import env
+# import env
 import dj_database_url
 
 if os.environ.get('DEVELOPMENT'):
-    development=True
+    development = True
 else:
-    development=False
-    
+    development = False
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -92,7 +92,8 @@ WSGI_APPLICATION = 'spectrum.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 if "DATABASE_URL" in os.environ:
-    DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     print("Database URL not found. Using SQLite instead")
     DATABASES = {
@@ -146,7 +147,7 @@ AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-#Static Files 
+# Static Files
 STATICFILES_STORAGE ='custom_storages.StaticStorage'
 STATICFILES_LOCATION ='static'
 
@@ -154,12 +155,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
 
-# Media Files 
+# Media Files
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIAFILES_LOCATION = 'media'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = "https://%s/%s/" %(AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
+MEDIA_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 
 # Messages
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
@@ -174,5 +175,5 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
 
 # Stripe Payments
-STRIPE_PUBLISHABLE=os.getenv('STRIPE_PUBLISHABLE')
-STRIPE_SECRET=os.getenv('STRIPE_SECRET')
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
