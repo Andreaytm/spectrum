@@ -14,6 +14,56 @@ This can be for their office walls, their homes, flats for sale/rent or even res
 The goal was to create a website for existing and potential customers to buy products online easily and also for shop managers and assistants
 to manage the shop online easily.
 
+## Index
+
+[UX](#ux)
+- User Stories
+- Wireframes
+
+[Features](#features)
+- [Existing Features](#existing_features)
+- [Enhancement Features](#enhancement features)
+
+[Technologies Used](#technologies_used)
+- Essential Technologies
+- Authentication
+- Deployment
+- SQL Database
+- Storage
+- Styling
+- Testing
+
+[Testing](#testing)
+- Testing Stripe Payments
+- Testing sending of emails
+- General Testing
+
+[Automated Testing](#automated_testing)
+- [Travis CI](#travis_ci)
+- [Coverage](#coverage)
+
+[Manual Testing](#manual_testing)
+- [Browser Testing](#browser_testing)
+- [Device Testing](#device_testing)
+
+[Known Issues](#known_issues)
+
+[Deployment](#deployment)
+- [Development Version vs Production/Deployed Version](#development_version_vs_production/deployed_version)
+    -[Development Version](#development_version) 
+    -[Production/Deployed Version](#produciton/deployed_version) 
+
+[Setting up Heroku](#setting_up_heroku)
+
+[Credits](#credits)
+
+[Content](#content)
+
+[Acknowledgements](#acknowledgements)
+
+[Getting this code up and running](#getting_this_code_up_and_running)
+
+
 ## UX
 This website is for any user interested in buying photographic prints for their office, cafe, restaurant, house, flat, living space or walls.
 The ecommerce shop is for both the online shopping browser, the working person on the go, who may only access the site via mobile, or tablet,
@@ -43,7 +93,7 @@ The planning of the style, look and feel of the website was captured in the
 ## Features
 
 ### Existing Features
-- Navigation of website
+- **Navigation of website**
     - All basic users can navigate website but with some limited functionalities
         - can look at products - shop
         - can look at reviews - reviews
@@ -54,7 +104,7 @@ The planning of the style, look and feel of the website was captured in the
         - can add products to cart, but cannot checkout
         - can register for account or login
         
-- User Authentication
+- **User Authentication**
     - login/logout/registration and password request features via completion of relevant forms.
     - specific logged in user access 
         - create/update/delete review
@@ -63,7 +113,7 @@ The planning of the style, look and feel of the website was captured in the
             - edit delivery address
             - see orders placed
             
-- e-commerce functionality
+- **e-commerce functionality**
     - easy to use checkout system (user must log in)
     - search bar to search for products
     - add and remove products from cart
@@ -71,21 +121,21 @@ The planning of the style, look and feel of the website was captured in the
     - sort products alphabetically or reverse alphabetical order
     - sort products by cost Low-High or High-Low
     
-- Review products (provided logged in)
+- **Review products (provided logged in)**
     - user can rate products
     - add own product images
     - edit/update and delete their own reviews (provided user is owner of review, unless superuser)
     - search for reviews on specific product by product name
     
-- Contact us form 
+- **Contact us form**
     - with SMTP backend use
     - user receives copy of email
     
-- Search bars 
+- **Search bars** 
     - filtering of products by name/description keywords
     - filtering of reviews by product name
     
-- Responsive UI 
+- **Responsive UI** 
     - cross browser compatible (use of Bootstrap, and media queries where necessary) 
         - Edge
         - IE
@@ -115,23 +165,20 @@ These features will require more development time.
 ## Technologies Used
 
 Essential Technologies:
-
 - [Cloud 9](https://aws.amazon.com/cloud9/?origin=c9io) online code editor for development of the project
-- CSS-for website styling
+- CSS for website styling
 - [Django](https://www.djangoproject.com/)
 - [Github](https://github.com/) for version control.
-- HTML5-for basic markup language and provide semantic elements to webpage design.
+- HTML5 for basic markup language and provide semantic elements to webpage design.
 - [jQuery](https://jquery.com/) to manage events and effects for enhanced user experience.
 - JavaScript-for UI enhancements
 
 Authentication:
-
 Use of Cross-Site Request Forgery (CSRF) tokens to mitigate CSRF attacks was used on all forms on the project.
 - [STRIPE](https://stripe.com/gb) for authentication of payment for e-commerce functionality. 
 - [Django Secret Key Generator](https://www.miniwebtool.com/django-secret-key-generator/) for generation of new SECRET_KEY.
 
 Deployment:
-
 - [Gunicorn](https://gunicorn.org/)-A Python package, used for running HTTP servers on UNIX based operating systems and to connect to Heroku.
 - [Heroku](https://www.heroku.com/) for deployment and hosting of project.
 
@@ -158,7 +205,7 @@ Styling:
 Testing:
 - [FreeFormatter.com](https://www.freeformatter.com/) for formatting and indentation.
 - [Coverage](https://coverage.readthedocs.io/en/v4.5.x/) for displaying test reports from Django unit tests.
-- [Travis CI](http://travis-ci.org)allows for Continuous Integration, which runs tests on code every time it is pushed to GitHub.
+- [Travis CI](http://travis-ci.org) allows for Continuous Integration, which runs tests on code every time it is pushed to GitHub.
 
 
 ## Testing:
@@ -173,14 +220,17 @@ Testing sending of emails via contact form:
 - Tested initially on console to display email message.
 - Tested again via smtp to ensure that message goes through to emails.
 
+General Testing:
 - Iterative testing has been included throughout the process of the project through observation of complex changes on localhost.
-- Checking syntax for errors against existing Code Institute learnt code.
+- Checked syntax for errors against existing Code Institute learnt code.
 - Validation of syntax through [CSS](https://jigsaw.w3.org/css-validator/) and [HTML Validators](https://validator.w3.org/) and of JavaScript code on [JSHint](https://jshint.com/).
 - Used [FreeFormatter](https://www.freeformatter.com/) to reindent tabs to ensure code is structured cleanly.
 - Checked console for errors in JavaScript.
 
 
 ### Automated Testing
+
+#### Travis CI
 - Automated testing was done using Travis-CI. 
 [![Build Status](https://travis-ci.org/Andreaytm/spectrum.svg?branch=master)](https://travis-ci.org/Andreaytm/spectrum)
 
@@ -357,45 +407,54 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ### Setting up Heroku
 I used Code Institute lessons for the deployment of the project.
 
-Heroku=
-I went to [Heroku](https://www.heroku.com/) to set up an app 'spectrum'
-Resources> add database **Postgres** choose **'HobbyDev Free'**
+Heroku
+- I went to [Heroku](https://www.heroku.com/) to set up an app 'spectrum'
+- To add Posgres database go to Resources> add database **Postgres** choose **'HobbyDev Free'**
 
 For use of Heroku Postgres:
-- Cloud 9 =
-```sudo pip3 install dj-database-url``` package allows connection to a database URL. ```sudo pip3 install psycopg2```
-- Create a requirements.txt file with all dependencies listed ```pip3 freeze > requirements.txt```
-**import dj_database_url** at top of settings.py file and change default sqlite3 database to be default dj_database_url
+- On Cloud 9 console install dj-database-url: 
+```sudo pip3 install dj-database-url```. This package allows connection to a database URL. 
+- Then install psycopg2 ```sudo pip3 install psycopg2``` which allows connection to the postgres database.
+- Create a requirements.txt file with all dependencies listed ```pip3 freeze > requirements.txt``` .
+- **import dj_database_url** at top of settings.py file and change default sqlite3 database to be default dj_database_url
 ```DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }```
-Add DATABASE_URL config vars code to env.py 
-Make migrations to migrate all files to new database.
+- Add DATABASE_URL config vars code to env.py 
+- Make migrations to migrate all files to new database.
 
 ```
 python3 manage.py makemigrations
 python3 manage.py migrate
 ```
 
-Create new superuser via ```python3 manage.py createsuperuser``` and add username, email and password.
-This will be production database for deploying on Heroku
+- Create new superuser via ```python3 manage.py createsuperuser``` and add username, email and password.
+**This will be production database for deploying on Heroku**
+- Update settings.py file spectrum app folder to include URL on Heroku in ALLOWED_HOSTS '<project-name>.herokuapp.com'
+and DATABASE_URL from Postgres Database
 
-Update settings.py file spectrum app folder to include URL on Heroku in ALLOWED_HOSTS
-DATABASE_URL from Postgres Database
-Ensure Heroku has all Config Vars required = SECRET_KEY, STRIPE_SECRET, STRIPE_PUBLISHABLE, EMAIL_ADDRESS, EMAIL_PASSWORD, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
-add DISABLE_COLLECTSTATIC and set to 1 this will disable staticfiles from being added to Heroku meaning can use AWS bucket.
+Heroku
+- Ensure Heroku has all Config Vars code required = SECRET_KEY, STRIPE_SECRET, STRIPE_PUBLISHABLE, EMAIL_ADDRESS, EMAIL_PASSWORD, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+add DISABLE_COLLECTSTATIC set to 1. The latter will disable staticfiles from being added to Heroku so the project uses the AWS bucket.
+- To allow deployment via github automatic/manual select Deploy> GitHub> connect to repo = 'spectrum' in Heroku menu. For automatic deployment select button 'enable automatic deploys'.
+- Otherwise use manual deployment to 'deploy branch'
 
-- Deploy>GitHub> connect to repo = 'spectrum'
-- Install gunicorn
+Cloud9
+- Install gunicorn ```sudo pip3 install gunicorn```.
 - Ensure all dependencies are added to requirements.txt with command ```pip3 freeze > requirements.txt```
 - Create and add a file called **Procfile** which contains text 'web: gunicorn spectrum.wsgi:application'
-```git add, git commit, git push```
-- Heroku >deploy branch
+- Git add, git commit then git push the code to GitHub
 
-- Heroku >more >restart all dynos to ensure that the project is updated.
+Heroku
+- Select Deploy >deploy branch if using manual deployment
+- To ensure working smoothly select top right menu option in Heroku >'more' >'restart all dynos' to ensure that the project is updated.
+
+Important
+- Ensure the Allowed Host Heroku name is projectname.herokuapp.com and does not contain 'Https://'
+- Ensure any irrelevant dependencies are removed from the project eg
 
 ## Credits
-- [Django Contact Form Tutorial: William S Vincent](https://wsvincent.com/django-contact-form/) the contact form which was adapted for this project
-- Andreas Grapentin and David on [Stack Overflow](https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box) support on select box options
-- Stars in review taken from post on [Stack Overflow](https://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css/1987545)
+- [Django Contact Form Tutorial: William S Vincent](https://wsvincent.com/django-contact-form/) the contact form which was adapted for this project.
+- Andreas Grapentin and David on [Stack Overflow](https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box) support on select box options.
+- Stars in review taken from post on [Stack Overflow](https://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css/1987545).
 
 ## Content
 [GoogleFonts](https://fonts.google.com/)
@@ -403,16 +462,17 @@ The photos used in this site are my own.
 
 
 ## Acknowledgements
-Code Institute
-Tutors:
-- Haley Schafer
-- Neil McEwen
-- Nakita McCool
+- **Code Institute Tutors**:
+    - Haley Schafer
+    - Neil McEwen
+    - Nakita McCool
+    
 - Tiffany Snell for words of encouragement and general check-ups
 
-- Mentor:
+- **Mentor**:
     - Jim Richmond
-- Students on Code Institute on Slack: 
+    
+- **Students on Code Institute on Slack**: 
     - Simen Daehlin:@eventyret 
     - Anthony Bonello: @bonello
     - Sarah Barron
