@@ -2,5 +2,7 @@
 .pyc
 .~c9
 __pycache__/
-requirements.txt
-media/
+env.py
+/misc
+/media
+htmlcov
