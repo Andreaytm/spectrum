@@ -419,10 +419,11 @@ Tutors:
 
 
 ## Getting this code up and running
+
 To contribute to this project please following the steps below on Cloud 9 and GitHub 
 1. Cloning this repository
 Run git clone <https://github.com/Andreaytm/spectrum> command.
-2.Create new project in cloud9 on a blank workspace.
+2. Create new project in cloud9 on a blank workspace.
 3. install everything in the requirements.txt
 ```$ sudo pip3 -r install requirements.txt```
 4. Ensure the db.sqlite3 and media and staticfiles are also installed
