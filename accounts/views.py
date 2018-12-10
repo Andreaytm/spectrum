@@ -69,6 +69,7 @@ def registration(request):
     return render(request, 'registration.html', {
         "registration_form": registration_form, 'address_form': address_form})
 
+@login_required
 def user_profile(request):
     """ The user's profile page"""
     user= request.user

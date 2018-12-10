@@ -5,6 +5,7 @@ from .forms import ReviewForm
 from django.http import HttpResponseRedirect
 from products.models import Product
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 def get_review(request):
     """
@@ -27,7 +28,8 @@ def review_detail(request, pk_review):
     review.views += 1
     review.save()
     return render(request, "reviewdetail.html", {'review' : review})
-    
+
+@login_required
 def create_or_edit_review(request, pk_review=None):
     """
     Create a view that allows us to create 
@@ -46,7 +48,8 @@ def create_or_edit_review(request, pk_review=None):
     else:
         reviewform = ReviewForm(instance=review)
     return render(request, 'reviewform.html', {'review_form' : reviewform})
-    
+
+@login_required
 def delete_review(request, pk_review):
     review = get_object_or_404(Review, pk=pk_review)
     review.delete()
