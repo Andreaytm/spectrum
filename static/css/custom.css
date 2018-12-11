@@ -123,13 +123,13 @@ footer {
     font-size: 40px;
 	position: fixed;
 	right: 10px;
-	bottom: 10px;
+    bottom: 80px;
 	height: 40px;
 	background-color: transparent;
 	color: black;
 	border: none;
 	border-radius: 20px;
-	z-index: 1;
+	z-index: 50;
 }
 
 #toTopBtn:hover {
@@ -366,7 +366,7 @@ input[type="file"] {
     border-color: white;
 }
 
-/* ----------------------------------Media Queries*/
+/* ---------------------------------------------Media Queries*/
 
 
 /*------------------------ lg= large desktop/laptop */
@@ -441,23 +441,18 @@ input[type="file"] {
     /*toTopBtn*/
     
     #toTopBtn {
-        font-size: 40px;
-    	position: fixed;
     	right: 50px;
     }
 }
 /*------------------------ md =landscape tablets med desktop & iPad landscape*/
 
 @media(min-width:992px) and (max-width:1199px) {
+    
     #toTopBtn {
-        font-size: 40px;
-    	position: fixed;
     	right: 100px;
-    	bottom: 60px;
     }
     
     /*Footer*/
-
     .soc-link {
        font-size: 25px;
     }
@@ -467,17 +462,14 @@ input[type="file"] {
 /*------------------------ sm =tablet & small desktop & iPad portrait*/
 
 @media(min-width:769px) and (max-width:991px) and (max-width:767px) {
+    
     #toTopBtn {
-        font-size: 40px;
-    	position: fixed;
     	right: 100px;
-    	bottom: 60px;
     }
     
     /*Footer*/
-
+    
     .soc-link {
        font-size: 25px;
     }
-    
 }

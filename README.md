@@ -14,6 +14,8 @@ This can be for their office walls, their homes, flats for sale/rent or even res
 The goal was to create a website for existing and potential customers to buy products online easily and also for shop managers and assistants
 to manage the shop online easily.
 
+The project is available on Heroku via [https://spectrum-ltd.herokuapp.com/](https://spectrum-ltd.herokuapp.com/)
+
 ## Index
 
 [UX](#ux)
@@ -50,8 +52,8 @@ to manage the shop online easily.
 
 [Deployment](#deployment)
 - [Development Version vs Production/Deployed Version](#development-version-vs-production/deployed-version)
-    -[Development Version](#development-version) 
-    -[Production/Deployed Version](#produciton/deployed-version) 
+    - [Development Version](#development-version) 
+    - [Production/Deployed Version](#production/deployed-version) 
 
 [Setting up Heroku](#setting-up-heroku)
 
@@ -78,6 +80,7 @@ The purchasing system is easy to use and allows for quick checkout.
 general browsing users who are potential customers who have browsed on to the site and are looking around, 
 and authenticated users who are customer of the site. 
 As this is a range of individuals who could be of varying ages I have referred to them as just users.
+
 However this could be:
 - Jane, mum with 2 daughters looking to decorate her house and daughter's room with some prints.
 - Ryan, restaurant owner, browsing for some prints for his new Caribbean styled restaurant.
@@ -174,7 +177,7 @@ Essential Technologies:
 - JavaScript-for UI enhancements
 
 Authentication:
-Use of Cross-Site Request Forgery (CSRF) tokens to mitigate CSRF attacks was used on all forms on the project.
+- Use of Cross-Site Request Forgery (CSRF) tokens to mitigate CSRF attacks was used on all forms on the project.
 - [STRIPE](https://stripe.com/gb) for authentication of payment for e-commerce functionality. 
 - [Django Secret Key Generator](https://www.miniwebtool.com/django-secret-key-generator/) for generation of new SECRET_KEY.
 
@@ -206,7 +209,10 @@ Testing:
 - [FreeFormatter.com](https://www.freeformatter.com/) for formatting and indentation.
 - [Coverage](https://coverage.readthedocs.io/en/v4.5.x/) for displaying test reports from Django unit tests.
 - [Travis CI](http://travis-ci.org) allows for Continuous Integration, which runs tests on code every time it is pushed to GitHub.
-
+- [CSS](https://jigsaw.w3.org/css-validator/) for CSS validation
+- [HTML Validators](https://validator.w3.org/) for HTML validation.
+- [JSHint](https://jshint.com/) for JavaScript validation.
+- [PEP8](http://pep8online.com/) for Python validation.
 
 ## Testing:
 Testing STRIPE payments: 
@@ -223,7 +229,8 @@ Testing sending of emails via contact form:
 General Testing:
 - Iterative testing has been included throughout the process of the project through observation of complex changes on localhost.
 - Checked syntax for errors against existing Code Institute learnt code.
-- Validation of syntax through [CSS](https://jigsaw.w3.org/css-validator/) and [HTML Validators](https://validator.w3.org/) and of JavaScript code on [JSHint](https://jshint.com/).
+- Validation of syntax through [CSS](https://jigsaw.w3.org/css-validator/) and [HTML Validators](https://validator.w3.org/), and 
+- Validation of JavaScript code on [JSHint](https://jshint.com/) and Python on [PEP8](http://pep8online.com/).
 - Used [FreeFormatter](https://www.freeformatter.com/) to reindent tabs to ensure code is structured cleanly.
 - Checked console for errors in JavaScript.
 
@@ -313,7 +320,7 @@ I later found out that test card '4242' does not need a CVV field to be filled i
 Issues with dropdown menus in nav. I found out that nav dropdown menus require a href of "#" so to ensure it works in iPhone or iPad.
 This does not affect the overall functionality of the website. But is something that needs to be included for iPhone and iPad compatibility.
 
-**Issue with flex-box in iPad**: this affected reviews and products displayed. Altered col-sm and col-md (for portrait and landscape views) 
+**Issue with flex-box in iPad  - Solved**: this affected reviews and products displayed. Altered col-sm and col-md (for portrait and landscape views) 
 and added container-fluid to various templates. This also solved an issue I was experiencing with Firefox where the carousel on the main
 index page was 'jumping'.
 
@@ -321,13 +328,36 @@ index page was 'jumping'.
 Dropdown styling (reviews search) was differing across browsers, some of which were affecting icons being seen (dropdown arrow)
 I added some help-text to ensure that users will select from dropdown to search for a review and added a message in body should no results be returned.
 
-**Browser- IE -Solved** :
+**Browser - IE - Solved** :
 Navbar was returning blue in IE whereas all other browsers returned the rainbow spectrum I had stylised. I later found out there was a typo
 in the css code which affected the rendering of the colours in IE but no other browser!
 
-**Migration Issues -Solved** :
+**Migration Issues - Solved** :
 I had some migration issues during the development and deployment of the project. I used the following to update database where there were issues that could not be resolved.
 [Stack Overflow](https://stackoverflow.com/questions/42150499/how-do-i-delete-db-sqlite3-in-django-1-9-to-start-from-scratch)
+
+```
+1. Delete the sqlite database file (often db.sqlite3) in your django project folder (or wherever you placed it)
+2. Delete everything except __init__.py file from migration folder in all django apps
+3. Make changes in your models (models.py).
+4. Run the command python manage.py makemigrations or python3 manage.py makemigrations
+5. Then run the command python manage.py migrate
+```
+
+**Email Issues - Solved** : I ensured the following was entered in the settings.py for both my contact form and my reset-password forms.
+There was an issue with the contacts form upon deployment after the PEP8 validation. 
+I have altered the contacts/views.py once more to ensure emails are working.
+The issue was with the PEP8 stating that lines were more than 75 characters long. 
+I had altered the code to ensure that lines were not more than 75 however this affected the functionality of the contact form.
+
+```
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+```
 
 ## Deployment
 
@@ -347,12 +377,32 @@ DATABASES = {
 ```
 
 - Storage of config var keys on env.py
+
+```
+import os 
+
+os.environ.setdefault("SECRET_KEY", "")
+os.environ.setdefault("STRIPE_SECRET", "")
+os.environ.setdefault("STRIPE_PUBLISHABLE", "")
+os.environ.setdefault("EMAIL_ADDRESS", "")
+os.environ.setdefault("EMAIL_PASSWORD", "")
+os.environ.setdefault("DATABASE_URL", "")
+os.environ.setdefault("AWS_SECRET_ACCESS_KEY", "")
+os.environ.setdefault("AWS_ACCESS_KEY_ID", "")
+
+```
 - Uses Pillow and uploading of media files via admin dashboard
 - Static files were kept in the project file structure
 
-```ALLOWED_HOST = [os.environ.get('C9_HOSTNAME')]```
+```
+import env
+...
+DEBUG = True
+....
+ALLOWED_HOSTS = [os.environ.get('C9_HOSTNAME')]
+```
 
-- media and static files are currently stored via: 
+- Media and static files are currently stored via: 
 
 ```
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -363,32 +413,55 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 ```
 
-- Emails
-
-```
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-EMAIL_PORT = 587
-```
 
 #### Production/Deployed Version
 - Uses Heroku Postgres database with dependencies of Psycopg2 and dj-database-url.
+- Comment out import env, import dj_database_url, add Database and set DEBUG to False.
 
-```DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }```
 
-- Config vars keys were stored with Heroku including additional key of **DISABLE_COLLECTSTATIC =1**.
+```
+# import env
+import dj_database_url
+...
+DEBUG = False
+
+
+DATABASES = { 'default' :dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+```
+
+- Config vars keys were stored within Heroku:
+    - SECRET_KEY
+    - STRIPE_SECRET
+    - STRIPE_PUBLISHABLE
+    - DATABASE_URL
+    - EMAIL_ADDRESS
+    - EMAIL_PASSWORD
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - and additional key of **DISABLE_COLLECTSTATIC with key of 1**.
+    
 - Uses AWS cloud-based storage of media and static files with dependencies of django-storages and Boto3.
 
-```ALLOWED_HOST = ['spectrum-ltd.herokuapp.com')]```
+```
+ALLOWED_HOSTS = [....., 'spectrum-ltd.herokuapp.com')]
+...
+
+INSTALLED_APPS = [.... 'storages', ]
+```
 
 - Media and static files are stored differently in Production/deployed version with 'storage' listed in 
 settings.py of 'INSTALLED_APPS'.
 
 ```
+# AWS Storage Bucket
+AWS_STORAGE_BUCKET_NAME = 'spectrum-ltd'
+AWS_S3_REGION_NAME = 'eu-west-2'
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+
+# Static Files
 STATICFILES_LOCATION ='static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
 
@@ -397,12 +470,35 @@ STATICFILES_DIRS =(
     os.path.join(BASE_DIR, "static"),
     )
 
-MEDIAFILES_LOCATION = 'media'
+# Media Files
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+MEDIAFILES_LOCATION = 'media'
 
 MEDIA_URL= "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
+
+- The final version has some settings.py with code allowing both development and deployment to be used as follows:
+```
+if os.environ.get('DEVELOPMENT'):
+    development = True
+else:
+    development = False
+...
+    
+if "DATABASE_URL" in os.environ:
+    DATABASES = { 'default': dj_database_url.parse(os.environ.get('DATABASE_URL')) }
+else:
+    print("Database URL not found. Using SQLite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+```
+
+- The deployed version is available here on Heroku via [https://spectrum-ltd.herokuapp.com/](https://spectrum-ltd.herokuapp.com/)
 
 ### Setting up Heroku
 I used Code Institute lessons for the deployment of the project.
@@ -453,7 +549,7 @@ Important
 
 ## Credits
 - [Django Contact Form Tutorial: William S Vincent](https://wsvincent.com/django-contact-form/) the contact form which was adapted for this project.
-- Andreas Grapentin and David on [Stack Overflow](https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box) support on select box options.
+- Andreas Grapentin and David on [Stack Overflow](https://stackoverflow.com/questions/5805059/how-do-i-make-a-placeholder-for-a-select-box) support on select box placeholder options.
 - Stars in review taken from post on [Stack Overflow](https://stackoverflow.com/questions/1987524/turn-a-number-into-star-rating-display-using-jquery-and-css/1987545).
 
 ## Content
