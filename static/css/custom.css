@@ -103,7 +103,7 @@ footer {
 }
 
 .soc-link {
-   font-size: 30px;
+   font-size: 25px;
 }
 
 .soc-links-title {
@@ -120,14 +120,12 @@ footer {
 
 #toTopBtn {
     float: right;
-    font-size: 30px;
-    display: none;
+    font-size: 40px;
 	position: fixed;
-	right: 50px;
-	bottom: 80px;
-	width: 40px;
+	right: 10px;
+	bottom: 10px;
 	height: 40px;
-	background-color: white;
+	background-color: transparent;
 	color: black;
 	border: none;
 	border-radius: 20px;
@@ -364,7 +362,7 @@ input[type="file"] {
     border: none;
 }
 
-.navbar-default .navbar-toggle{
+.navbar-default .navbar-toggle {
     border-color: white;
 }
 
@@ -418,9 +416,10 @@ input[type="file"] {
     }
 
     /*Carousel*/
+    
     img {
-    margin: 0 auto;	
-    padding: 0;
+        margin: 0 auto;	
+        padding: 0;
     }
 
     .carousel-caption h3 {
@@ -436,7 +435,49 @@ input[type="file"] {
     /*Footer*/
     
     .soc-link {
-       font-size: 18px;
+       font-size: 22px;
+    }
+    
+    /*toTopBtn*/
+    
+    #toTopBtn {
+        font-size: 40px;
+    	position: fixed;
+    	right: 50px;
     }
 }
+/*------------------------ md =landscape tablets med desktop & iPad landscape*/
 
+@media(min-width:992px) and (max-width:1199px) {
+    #toTopBtn {
+        font-size: 40px;
+    	position: fixed;
+    	right: 100px;
+    	bottom: 60px;
+    }
+    
+    /*Footer*/
+
+    .soc-link {
+       font-size: 25px;
+    }
+    
+}
+
+/*------------------------ sm =tablet & small desktop & iPad portrait*/
+
+@media(min-width:769px) and (max-width:991px) and (max-width:767px) {
+    #toTopBtn {
+        font-size: 40px;
+    	position: fixed;
+    	right: 100px;
+    	bottom: 60px;
+    }
+    
+    /*Footer*/
+
+    .soc-link {
+       font-size: 25px;
+    }
+    
+}
