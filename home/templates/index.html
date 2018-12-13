@@ -73,20 +73,20 @@
 </a>
 <div class= "container-fluid row row-flex">
     {% for review in review %}
-    <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 display panel panel-default">
         <div class="review-panel">
-            <div class="col-xs-5 col-sm-6 col-md-5 col-lg-5 text-center">
-                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
+            <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4 text-center">
+                <div class="review-product-index" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
                 <div class="boldtext">Product: {{ review.product }}</div>
                 {% if review.image == "" %}
                 {% else %}
                 <br>
                 <div class="boldtext">{{ review.author }} image:</div>
-                <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
+                <div class="review-product-index" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
                 <br>
                 {% endif %}            
             </div>
-            <div class="col-xs-6 col-xs-offset-1 col-sm-5 col-md-6 review-text">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 review-text">
                 <a href="{% url 'review_detail' review.id %}">
                     <h3>{{ review.title }}</h3>
                 </a>
