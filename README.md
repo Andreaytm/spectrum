@@ -164,8 +164,9 @@ The planning of the style, look and feel of the website was captured in the
     - sort products by cost Low-High or High-Low
     - free delivery for spending over £100
 
-- #### Review Products (provided logged in)
-    - user can rate products
+- #### Review Products 
+- Provided the user is logged in the user can:
+    - rate products
     - add own product images
     - edit/update and delete their own reviews (provided user is owner of review, unless superuser)
     - search for reviews on specific product by product name
@@ -606,7 +607,7 @@ Heroku
 
 Important
 - Ensure the Allowed Host Heroku name is projectname.herokuapp.com and does not contain 'Https://'
-- Ensure any irrelevant dependencies are removed from the project eg
+- Ensure any irrelevant dependencies are removed from the project (eg unattended-upgrades, python-apt, idna, pygobject and certifi)
 
 ## Credits
 - [Django Contact Form Tutorial: William S Vincent](https://wsvincent.com/django-contact-form/) the contact form which was adapted for this project.
