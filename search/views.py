@@ -4,7 +4,9 @@ from review.models import Review
 
 
 def do_search(request):
-    products = Product.objects.filter(description__icontains=request.GET['q'])
+    products = Product.objects.filter(description__icontains=request.GET['q']) 
+    products = Product.objects.filter(name__icontains=request.GET['q'])
+    products = Product.objects.filter(tags__icontains=request.GET['q'])
     return render(request, "products.html", {"products": products})
 
 

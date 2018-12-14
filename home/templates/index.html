@@ -9,37 +9,37 @@
                 <figure class="carousel-image item active">
                     <img class="carousel-img"  src="{% static 'images/strawberry.jpg' %}" alt="strawberry">
                     <div class="carousel-caption">
-                        <h3>Red</h3>
+                        <a href="{% url 'filter_product_by_red' %}" class="filter-caption">Red</a>
                     </div>
                 </figure>
                 <figure class="carousel-image item">
                     <img class="carousel-img" src="{% static 'images/birdofparadise.jpg' %}" alt="birdofparadise">
                     <div class="carousel-caption">
-                        <h3>Orange</h3>
+                        <a href="{% url 'filter_product_by_orange' %}" class="filter-caption">Orange</a>
                     </div>
                 </figure>
                 <figure class="carousel-image item">
                     <img class="carousel-img" src="{% static 'images/sunflower.jpg' %}" alt="sunflower">
                     <div class="carousel-caption">
-                        <h3>Yellow</h3>
+                        <a href="{% url 'filter_product_by_yellow' %}" class="filter-caption">Yellow</a>
                     </div>
                 </figure>
                 <figure class="carousel-image item">
                     <img class="carousel-img" src="{% static 'images/cacti.jpg' %}" alt="cacti">
                     <div class="carousel-caption">
-                        <h3>Green</h3>
+                        <a href="{% url 'filter_product_by_green' %}" class="filter-caption">Green</a>
                     </div>
                 </figure>
                 <figure class="carousel-image item">
                     <img class="carousel-img" src="{% static 'images/palmtree.jpg' %}" alt="palm tree">
                     <div class="carousel-caption">
-                        <h3>Blue</h3>
+                        <a href="{% url 'filter_product_by_blue' %}" class="filter-caption">Blue</a>
                     </div>
                 </figure>
                 <figure class="carousel-image item">
                     <img class="carousel-img" src="{% static 'images/bauhinia.jpg' %}" alt="bauhinia">
                     <div class="carousel-caption">
-                        <h3>Purple</h3>
+                        <a href="{% url 'filter_product_by_purple' %}" class="filter-caption">Purple</a>
                     </div>
                 </figure>
             </div>
@@ -74,7 +74,7 @@
 <div class= "container-fluid row row-flex">
     {% for review in review %}
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 display panel panel-default">
-        <div class="review-panel">
+        <div class="review-panel-index">
             <div class="col-xs-8 col-sm-6 col-md-5 col-lg-4 text-center">
                 <img class="review-product-index" src="{{ MEDIA_URL }}{{ review.product.image }}" alt="review product image">
                 <div class="boldtext">Product: {{ review.product }}</div>

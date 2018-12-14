@@ -32,15 +32,12 @@
     <h3>Order History</h3>
     {% for orders in orders %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-        <div class="review-panel">
-            <div class="panel-body-profile">
-                <h3 class="order-profile-info">Product Name: {{ orders.product.name }}</h3>
-                <p class="order-profile-info">Order Number: #{{ orders.order.id }}</p>
-                <p class="product-profile" style="background-image: url('{{ MEDIA_URL }}{{ orders.product.image }}')"></p>
-                <p class="order-profile-info">Quantity: {{ orders.quantity }}</p>
-                <p class="order-profile-info"><span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ orders.product.price }} + Delivery Cost <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>4</p>
-                <p class="order-profile-info"> Date ordered: {{ orders.date }}</p>
-            </div>
+        <div class="panel-body-profile">
+            <p class="order-profile-info">Order Number: #{{ orders.order.id }}</p>
+            <p class="order-profile-info"> Date ordered: {{ orders.date }}</p>
+            <h3 class="order-profile-info"><a href="{% url 'products' %}">Product Name: {{ orders.product.name }}</a></h3>
+            <img class="product-profile" src="{{ MEDIA_URL }}{{ orders.product.image }}" alt="product image">
+            <p class="order-profile-info">Quantity: {{ orders.quantity }}</p>
         </div>
     </div>
     {% empty %}

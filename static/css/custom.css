@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
-@import url('https://fonts.googleapis.com/css?family=Exo:100,200,300,400,500,600,700|Roboto:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700');
 
 /* ----------------------------------Headings & Nav*/
-
 /* navbar */
-
 .navbar {
     background-image:linear-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
     background-image:-webkit-linear-gradient(to right, #000 20%, #ff0000, #ffad00, #ffff00, #14ff00, #0033ff, #1d9ce5, #8d0999, #ffffff);
@@ -16,29 +14,23 @@
 }
 
 /* dropdown nav menu */
-
 .dropdown-menu {
     background-color: #000;
 }
-
 .dropdown-menu li a {
     color: #c9c9c9;
 }
-
 .navbar-default .navbar-brand {
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Kaushan Script', cursive, sans-serif;
     font-size: 30px;
 }
-
 nav {
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Kaushan Script', cursive, sans-serif;
 }
-
 h1, h2 {
     color: black;
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Kaushan Script', cursive, sans-serif;
 }
-
 .bold-text{
     font-weight: bold;
 }
@@ -52,7 +44,6 @@ h1, h2 {
     background-image: none;
     border: none;
 }
-
 .search-input {
     margin: 0 10px;
     height: 30px;
@@ -61,28 +52,23 @@ h1, h2 {
 }
 
 /* ----------------------------------Special Paddings/Margins/Text*/
-
 .signature {
     font-family: 'Kaushan Script', cursive;
     color: black;
     font-size: 20px;
 
 }
-
 h3 {
     color: indigo;
 }
-
 body {
-    font-family: Roboto;
+    font-family: 'Roboto', sans-serif;
     padding-top: 60px;
     font-size: 14px;
 }
-
 .accountform {
     padding-top: 20px;
 }
-
 .badge {
     padding-left: 9px;
     padding-right: 9px;
@@ -100,26 +86,21 @@ footer {
     border-top: 1px solid #ccc;
     color: #909090;
 }
-
 .uppercase general-sub:hover { 
      text-decoration: none;   
 }
-
 .soc-link {
    font-size: 25px;
 }
-
 .soc-links-title {
     color: #622268;
-    font-family: 'Kaushan Script', cursive;
+    font-family: 'Kaushan Script', cursive, sans-serif;
 }
-
 .footer-details{
     text-decoration: none;
 }
 
 /* ----------------------------------toTopBtn*/
-
 #toTopBtn {
     float: right;
     font-size: 35px;
@@ -133,15 +114,12 @@ footer {
 	border-radius: 20px;
 	z-index: 50;
 }
-
 #toTopBtn:hover {
 	color: indigo;
 }
 
 /* ----------------------------------Hover.css*/
-
 /* navbar */
-
 .navbar-default .navbar-toggle:hover, 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-nav .open a, 
@@ -152,53 +130,50 @@ footer {
     background-color: rgba(0, 0, 0, 0.1);
     font-weight: bold;
 }
-
 .hvr-soc-link-red:hover {
    color:#ff0000;
 }
-
 .hvr-soc-link-orange:hover {
     color:#ffad00;
 }
-
 .hvr-soc-link-yellow:hover {
     color:#ffff00;
 }
-
 .hvr-soc-link-green:hover {
     color:#14ff00;
 }
-
 .hvr-soc-link-indigo:hover {
     color:#622268;
 }
-
 .hvr-soc-link-violet:hover {
     color:#ee9ef5;
 }
 
 /* ----------------------------------Carousel*/
-
 img {
     margin: 0 auto;	
     padding: 0;
 }
-
-.carousel-caption h3 {
+a .filter-caption {
     color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px ;
+    text-decoration: none;
 }
-
 #carousel-index {
 	width: 100%;
 	max-height: 400px;
+	overflow: hidden;
+}
+.carousel-img{
+    height: auto;
+    width: auto;
 }
 
 /* ----------------------------------Profile*/
-
 .order-profile-info{
     margin: 20px;
 }
-
 .panel-body-profile {
     height: 100%;
     border: 1px solid #ddd;
@@ -206,50 +181,33 @@ img {
 }
 
 /* ----------------------------------Products*/
-.review-product-index,
-.review-product-detail,
-.review-product,
-.product-profile,
-.product {
-    background-size: contain;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin: 0 auto;
-}
-
 .product-profile,
 .product {
     width: 200px; 
     height: auto;
 }
-
 .product-description {
     min-height: 40px;
 }
-
 .row-flex {
     display: flex;
     flex-wrap: wrap;
     margin-top: 30px;
 }
-
 .panel-default {
     border-color: transparent;
     padding: 0 10px;
 }
-
 .panel-body {
     height: 100%;
     border: 1px solid #ddd;
     display: inline-grid;
 }
 
-/* sort products menu */
-
+/* sort & filter products menu */
 .dropdown { 
     list-style-type: none;
 }
-
 .filter-color {
     float: right;
     display: inline-flex;
@@ -259,51 +217,41 @@ img {
     margin: auto 1px;
     text-align: center;
 }
-
 .filter-color:hover {
     color: white;
     font-weight: bold;
 }
-
 .red.filter-color {
     background: red;
 }
-
 .orange.filter-color {
     background: orange;
 }
-
 .yellow.filter-color {
     background: yellow;
 }
-
 .green.filter-color {
     background: green;
 }
-
 .blue.filter-color {
     background: blue;
 }
-
 .pink.filter-color {
     background: pink;
 }
-
 .purple.filter-color {
     background: purple;
 }
-
 .white.filter-color {
     background: white;
     color: black;
 }
-
 .black.filter-color {
     background: black;
 }
 
 /* ----------------------------------Review*/
-
+.review-panel-index,
 .review-panel {
     border: 1px solid #c9c9c9;
     display: flex;
@@ -312,29 +260,23 @@ img {
     word-wrap: break-word;
     flex-wrap: wrap;
 }
-
 .review-product-index,
 .review-product {
-    height: 150px;
-    width: auto;
+    width: 150px;
+    height: auto;
     margin: 15px;
 }
-
 .review-product-detail {
-    height: 180px;
-    width: auto;
-    margin: 15px;
+    width: 180px;
+    height: auto;
 }
-
 .rating {
     font-size: 25px;
     color: #ffad00; 
 }
-
 .review-text {
     word-wrap: break-word;
 }
-
 /*search reviews*/
 .filter-btn {
     height: 30px;
@@ -346,7 +288,6 @@ img {
     background-color: black;
     border-radius: 0px;
 }
-
 select { 
     height: 30px;
     float: left;
@@ -354,141 +295,108 @@ select {
     color: white;
     border: none;
 }
-
 input[type="file"] {
     height: auto;
 }
-
 .form-control {
     margin-bottom: 20px;
 }
 
 /* ----------------------------------Checkout*/
-
 #stripe-error-message {
     color: red;
     font-weight: bold;
 }
 
 /*mobile------------------*/
-
 .navbar-default .navbar-collapse, 
 .navbar-default .navbar-form {
     border: none;
 }
-
 .navbar-default .navbar-toggle {
     border-color: white;
 }
 
 /* ---------------------------------------------Media Queries*/
-
-
 /*------------------------ lg= large desktop/laptop */
 @media(min-width:1200px) {
-    
     /* products */
     .product-profile,
     .product,
     .product {
         width: 300px; 
+        margin: 20px;
     }
-    
+    /*Reviews*/
+    .review-product-index,
+    .review-product {
+        width: 100px;
+    }
     .review-product-detail {
-        width: 250px; 
+        width: 250px;
+        margin: 15px;
     }
-    
-    .product-description {
-        min-height: 40px;
+    .review-panel-index {
+        min-height: 300px
     }
-    
-    .row-flex {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 30px;
-    }
-    
-    .panel-default {
-        border-color: transparent;
-        padding: 0 10px;
-    }
-    
-    .panel-body {
-        height: 100%;
-        border: 1px solid #ddd;
-        display: inline-grid;
-    }
-    
-    /* sort products menu */
-    .dropdown { 
-        list-style-type: none;
-    }
-
-    /*Carousel*/
-    
-    img {
-        margin: 0 auto;	
-        padding: 0;
-    }
-
-    .carousel-caption h3 {
-        color: white;
-    }
-    
-    #carousel-index {
-    	margin: 0 auto;	
-    	width: 100%;
-    	max-height: 400px;
-    	overflow: hidden;
+    .review-panel {
+        min-height: 500px
     }
     /*Footer*/
-    
     .soc-link {
        font-size: 22px;
     }
-    
     /*toTopBtn*/
-    
     #toTopBtn {
         font-size: 40px;
     	right: 50px;
     }
-}
-/*------------------------ md =landscape tablets med desktop & iPad landscape*/
-
-@media(min-width:992px) and (max-width:1199px) {
     
+}
+
+/*------------------------ md =landscape tablets med desktop & iPad landscape*/
+@media(min-width:992px) and (max-width:1199px) {
     #toTopBtn {
     	right: 100px;
     }
-    
     /*Footer*/
     .soc-link {
        font-size: 25px;
     }
-    
-    .review-product-detail {
-        height: 130px;
+    /*Reviews*/
+    .review-product-index,
+    .review-product {
+        width: 100px;
+        margin: 15px;
     }
-    
+    .review-product-detail {
+        width: 180px;
+        margin: 15px;
+    }
+    .review-panel-index{
+        min-height: 300px
+    }
+    .review-panel {
+        min-height: 500px
+    }
 }
 
 /*------------------------ sm =tablet & small desktop & iPad portrait*/
-
-@media(min-width:769px) and (max-width:991px) and (max-width:767px) {
-    
+@media(min-width:768px) and (max-width:991px) and (max-width:767px) {
     #toTopBtn {
     	right: 100px;
     }
-    
     /*Footer*/
-    
     .soc-link {
        font-size: 25px;
     }
-    
+    /*Reviews*/
     .review-product-detail {
-        height: 180px;
+        width: 180px;
+        margin: 15px;
     }
-    
+    /* carousel */
+    #carousel-index {
+        padding: 30% 0;
+    }
 }
