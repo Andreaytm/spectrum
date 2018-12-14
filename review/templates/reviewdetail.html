@@ -30,20 +30,20 @@
                 </div>
             </div>
             <br>
-            <div class='review.buttons'>
-                <br>
-                <p><a  href="{% url 'get_review' %}" class="btn btn-info col-xs-12 col-md-4">Back to Review</a></p>
-                <br>
-                {% if user.is_authenticated and user == review.author %}
-                <p><a href="{% url 'edit_review' review.id %}" class="btn btn-primary col-xs-12 col-md-4">Edit Review</a></p>
-                {% endif %}
-                <br>
-                {% if user.is_superuser or user.is_authenticated and user == review.author %}
-                <p><a href="{% url 'delete_review' review.id %}" class="btn btn-danger col-xs-12 col-md-4">Delete Review</a></p>
-                {% endif %}
-            </div>
             <br>
         </div>
-    </div>
+        <div class='review.buttons'>
+            <br>
+            <p><a  href="{% url 'get_review' %}" class="btn btn-info col-xs-12 col-lg-4">Back to Review</a></p>
+            <br>
+            {% if user.is_authenticated and user == review.author %}
+            <p><a href="{% url 'edit_review' review.id %}" class="btn btn-primary col-xs-12 col-lg-4">Edit Review</a></p>
+            {% endif %}
+            <br>
+            {% if user.is_superuser or user.is_authenticated and user == review.author %}
+            <p><a href="{% url 'delete_review' review.id %}" class="btn btn-danger col-xs-12 col-lg-4">Delete Review</a></p>
+            {% endif %}
+        </div>
+    </div>   
 </div>
 {% endblock %}

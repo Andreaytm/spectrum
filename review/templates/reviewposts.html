@@ -23,9 +23,9 @@
 <br>
 <div class="container row row-flex">
     {% for review in review %}
-    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 display panel panel-default">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 display panel panel-default">
         <div class="review-panel">
-            <div class="col-xs-12 col-md-5 col-lg-5 text-center">
+            <div class="col-xs-12 col-md-12 col-lg-5 text-center">
                 <div class="review-product" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
                 <div class="boldtext">Product: {{ review.product }}</div>
                 {% if review.image == "" %}
