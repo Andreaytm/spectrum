@@ -1,6 +1,10 @@
 # Full stack Frameworks Project - Spectrum Ltd
 
-- An e-commerce Project written using Django
+
+## An e-commerce Project written using Django
+
+![alt text](https://github.com/Andreaytm/spectrum/blob/master/misc/amiresponsive-img.JPG "Image from: ami.responsivedesign.is")
+
 
 The project utilises skills learnt in the full stack frameworks course from Code Institute.
 The project will demonstrate what I have learnt in the course from frontend, backend and full stack web development.
@@ -20,8 +24,6 @@ The project incorporates code pulled from other projects learnt on Code Institut
 - and [django-blog](https://github.com/Andreaytm/django-blog) which was adapted for the reviews functionality.
 
 The project is available on Heroku via [https://spectrum-ltd.herokuapp.com/](https://spectrum-ltd.herokuapp.com/)
-
-![alt text](https://github.com/Andreaytm/spectrum/blob/master/misc/amiresponsive-img.JPG "Image from: ami.responsivedesign.is")
 
 
 ## Index
@@ -194,10 +196,10 @@ These features will require more development time.
 - Email receipt of order.
 - Pagination of pages for products.
 - Add custom 403, 404, 400, 500, error pages.
-- Improve optimisation by implementing suggestions from reports 
+- Improve SEO and enhanced responsive design by implementing suggestions in reports and informationfrom:
     - [Dareboost](https://www.dareboost.com/en)
     - [mobiReady](https://ready.mobi/)
-
+    - [W3C Recommendations for Mobile Web Best Practices 1.0](https://www.w3.org/TR/mobile-bp/)
 
 ## Technologies Used
 
@@ -346,8 +348,9 @@ devices display with popup alerts to complete fields.
 The images sizes within reviews, products and carousels alter across devices. On smaller devices 
 the nav menu displays as a collapsed menu icon.
 
-Some of the products and carousel displays slightly differently in iPad. It is however usable but
-not as attractive as on other devices. This will an enhancement for future iterations of the project.
+The mobile, tablets, small and extra-small devices use target="_self" for social media links in the footer
+whereas the medium and larger devices will use targe="_blank" to open up a new tab this adjustment
+was made to be in adherence of recommendations made by W3C in their [best practice guide](https://www.w3.org/TR/mobile-bp/).
 
 
 ## Known Issues
@@ -368,11 +371,11 @@ index page was 'jumping'.
 Dropdown styling (reviews search) was differing across browsers, some of which were affecting icons being seen (dropdown arrow)
 I added some help-text to ensure that users will select from dropdown to search for a review and added a message in body should no results be returned.
 
-**Browser - IE - Solved** :
+**Browser - IE - Solved**: 
 Navbar was returning blue in IE whereas all other browsers returned the rainbow spectrum I had stylised. I later found out there was a typo
 in the css code which affected the rendering of the colours in IE but no other browser!
 
-**Migration Issues - Solved** :
+**Migration Issues - Solved**: 
 I had some migration issues during the development and deployment of the project. I used the following to update database where there were issues that could not be resolved.
 [Stack Overflow](https://stackoverflow.com/questions/42150499/how-do-i-delete-db-sqlite3-in-django-1-9-to-start-from-scratch)
 
@@ -388,7 +391,8 @@ I had some migration issues during the development and deployment of the project
 There was an issue with the contacts form upon deployment after the PEP8 validation. 
 I have altered the contacts/views.py once more to ensure emails are working.
 The issue was with the PEP8 stating that lines were more than 75 characters long. 
-I had altered the code to ensure that lines were not more than 75 however this affected the functionality of the contact form.
+I had altered the code to ensure that lines were not more than 75 however this affected the functionality of the contact form, 
+so I have changed this back to the original, however the error that the line has to many characters is displayed when running PEP8.
 
 ```
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -398,6 +402,14 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
 ```
+
+**iPad Issues - Solved but requires further refinement**: 
+Initially I had issues with styling review panel in index and reviews page. 
+This was down to the height of the panels being at ```height:100%;```, which displayed incorrectly in iPad only.
+I have since corrected this to ```display: flex;``` with use of ```flex-wrap: wrap;```.
+Some of the products and carousel however still display slightly differently in iPad. 
+It is however usable but not as attractive as on other devices. 
+This will be an enhancement for future iterations of the project.
 
 ## Deployment
 
