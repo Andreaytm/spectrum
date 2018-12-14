@@ -28,10 +28,19 @@ def checkout(request):
 
             cart = request.session.get('cart', {})
             total = 0
-            delivery_cost = 4
+            totalproductcost = 0
+            delivery_cost = 0
+            totaldeliverycost = 0
+            product_count = 0
             for id, quantity in cart.items():
                 product = get_object_or_404(Product, pk=id)
-                total += quantity * product.price + quantity * delivery_cost
+                totalproductcost += quantity * product.price
+                total =  totalproductcost + totaldeliverycost
+                if totalproductcost >= 100:
+                    totaldeliverycost = 0
+                else:
+                    totaldeliverycost = product_count * delivery_cost
+
                 order_line_item = OrderLineItem(
                     order=order,
                     product=product,
@@ -55,7 +64,7 @@ def checkout(request):
 
             if customer.paid:
                 messages.success(
-                    request, "You have successfully paid!",
+                    request, "You have successfully paid!", 
                     extra_tags='alert-success')
                 request.session['cart'] = {}
                 return redirect(reverse('products'))

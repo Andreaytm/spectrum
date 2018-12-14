@@ -8,7 +8,7 @@
     {% for item in cart_items %}
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
         <div class="panel-body">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+            <img class="product" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="product image">
             <div class="caption">
                 <h3>{{ item.product.name }}</h3>
                 <p class="product-description">{{ item.product.description }}</p>
@@ -40,8 +40,16 @@
 {% if product_count > 0 %}
 <div class="checkout-total">
     <br>
-    <p>Total (incl delivery):  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ total }} </p>
+    <p>Total Cost of Images:  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ totalproductcost }} </p>
     <p>Delivery Cost:  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ totaldeliverycost }}</p>
+    {% if totaldeliverycost == 0 %}
+    <p>Free delivery added to cart!</p>
+    {% else %}
+    <p>Spend  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ free_delivery }} more for free delivery!</p>
+    {% endif %}
+    <br>
+    <p>Final Total (incl delivery):  <span class="glyphicon glyphicon-gbp" aria-hidden="true"></span>{{ total }} </p>
+
     <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
 </div>
 {% else %}
