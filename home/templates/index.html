@@ -76,13 +76,13 @@
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 display panel panel-default">
         <div class="review-panel">
             <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4 text-center">
-                <div class="review-product-index" style="background-image: url('{{ MEDIA_URL }}{{ review.product.image }}')"></div>
+                <img class="review-product-index" src="{{ MEDIA_URL }}{{ review.product.image }}" alt="review product image">
                 <div class="boldtext">Product: {{ review.product }}</div>
                 {% if review.image == "" %}
                 {% else %}
                 <br>
                 <div class="boldtext">{{ review.author }} image:</div>
-                <div class="review-product-index" style="background-image: url('{{ MEDIA_URL }}{{ review.image }}')"></div>
+                <img class="review-product-index" src="{{ MEDIA_URL }}{{ review.image }}" alt="user uploaded review image">
                 <br>
                 {% endif %}            
             </div>
@@ -110,7 +110,7 @@
     {% for product in product %}
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
         <div class="panel-body">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+            <img class="product" src="{{ MEDIA_URL }}{{ product.image }}" alt="product image">
             <a href="{% url 'products' %}">
                 <h3>{{ product.name }}</h3>
             </a>

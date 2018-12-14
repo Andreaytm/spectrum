@@ -40,7 +40,7 @@
     {% for product in products %}
     <div class="col-xs-12 col-sm-5 col-md-5 col-lg-4 display panel panel-default">
         <div class="panel-body">
-            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ product.image }}')"></div>
+            <img class="product" src="{{ MEDIA_URL }}{{ product.image }}" alt="product image">
             <h3>{{ product.name }}</h3>
             <br>
             <p class="product-description">{{ product.description }}</p>
