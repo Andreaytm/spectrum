@@ -6,7 +6,7 @@
 ![alt text](https://github.com/Andreaytm/spectrum/blob/master/misc/amiresponsive-img.JPG "Image from: ami.responsivedesign.is")
 
 
-The project utilises skills learnt in the full stack frameworks course from Code Institute.
+The project utilises skills learnt in the full stack frameworks course from [Code Institute](https://courses.codeinstitute.net/).
 The project will demonstrate what I have learnt in the course from frontend, backend and full stack web development.
 It is a Django project with multiple apps
 
@@ -620,6 +620,7 @@ The photos used in this site are my own.
 
 
 ## Acknowledgements
+- [Code Institute](https://courses.codeinstitute.net/)
 - **Code Institute Tutors**:
     - Haley Schafer
     - Neil McEwen
