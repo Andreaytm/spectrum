@@ -181,8 +181,11 @@ img {
     height: 100%;
     border: 1px solid #ddd;
     margin: 10px;
+    min-height: 0;
 }
-
+.product-profile{
+    margin: 0 20px;
+}
 /* ----------------------------------Products*/
 .product-profile,
 .product {
@@ -323,12 +326,14 @@ input[type="file"] {
 /* ---------------------------------------------Media Queries*/
 /*------------------------ lg= large desktop/laptop */
 @media(min-width:1200px) {
-    /* products */
+    /* products & Profile */
     .product-profile,
     .product,
     .product {
         width: 300px; 
-        margin: 20px;
+    }
+    .panel-body-profile {
+        min-height: 480px;
     }
     /*Reviews*/
     .review-product-index,
@@ -354,7 +359,6 @@ input[type="file"] {
         font-size: 40px;
     	right: 50px;
     }
-    
 }
 
 /*------------------------ md =landscape tablets med desktop & iPad landscape*/
@@ -365,6 +369,10 @@ input[type="file"] {
     /*Footer*/
     .soc-link {
        font-size: 25px;
+    }
+    /* Profile */
+    .panel-body-profile {
+        min-height: 400px;
     }
     /*Reviews*/
     .review-product-index,
@@ -392,6 +400,10 @@ input[type="file"] {
 @media(min-width:768px) and (max-width:991px) and (max-width:767px) {
     #toTopBtn {
     	right: 100px;
+    }
+    /* Profile */
+    .panel-body-profile {
+        min-height: 0;
     }
     /*Footer*/
     .soc-link {

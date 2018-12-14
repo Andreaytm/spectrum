@@ -31,7 +31,7 @@
     <div class="container">
     <h3>Order History</h3>
     {% for orders in orders %}
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+    <div class="col-xs-12 col-sm-12 col-md-4 display panel panel-default">
         <div class="panel-body-profile">
             <p class="order-profile-info">Order Number: #{{ orders.order.id }}</p>
             <p class="order-profile-info"> Date ordered: {{ orders.date }}</p>
@@ -42,7 +42,7 @@
     </div>
     {% empty %}
     <br>
-    <div class="col-xs-6 col-sm-12">
+    <div class="col-xs-12">
         <p>You don't currently have any past orders. Please check out <a href="{% url 'products' %}">our images</a> to see if there is anything you'd like to buy.</p>
     </div>
     {% endfor %}
