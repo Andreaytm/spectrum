@@ -14,7 +14,15 @@ This can be for their office walls, their homes, flats for sale/rent or even res
 The goal was to create a website for existing and potential customers to buy products online easily and also for shop managers and assistants
 to manage the shop online easily.
 
+The project incorporates code pulled from other projects learnt on Code Institute coursework and adapted for the final project needs, including:
+- [django e-commerce](https://github.com/Andreaytm/django-ecommerce) project, 
+- [django-auth](https://github.com/Andreaytm/django-auth) which is already incorporated in the django e-commerce project
+- and [django-blog](https://github.com/Andreaytm/django-blog) which was adapted for the reviews functionality.
+
 The project is available on Heroku via [https://spectrum-ltd.herokuapp.com/](https://spectrum-ltd.herokuapp.com/)
+
+![alt text](https://github.com/Andreaytm/spectrum/blob/master/misc/amiresponsive-img.JPG "Image from: ami.responsivedesign.is")
+
 
 ## Index
 
@@ -24,21 +32,37 @@ The project is available on Heroku via [https://spectrum-ltd.herokuapp.com/](htt
 
 [Features](#features)
 - [Existing Features](#existing-features)
+    - [Navigation of Website](#navigation-of-website)
+    
+    - [User Authentication](#user-authentication)
+    
+    - [e-Commerce Functionality](#e-commerce-functionality)
+
+    - [Review Products](#review-products)
+    
+    - [Contact Us Form](#contact-us-form)
+    
+    - [Search and Filter](#search-and-filter)
+    
+    - [Responsive UI](#responsive-ui)
+
 - [Enhancement Features](#enhancement-features)
 
+
 [Technologies Used](#technologies-used)
-- Essential Technologies
-- Authentication
-- Deployment
-- SQL Database
-- Storage
-- Styling
-- Testing
+- [Essential Technologies](#essential-technologies)
+- [Authentication](#authentication)
+- [Deployment](#deployment)
+- [SQL Database](#sql-database)
+- [Storage](#storage)
+- [Styling](#styling)
+- [Testing](#testing)
 
 [Testing](#testing)
-- Testing Stripe Payments
-- Testing sending of emails
-- General Testing
+- [Testing Stripe Payments](#testing-stripe-payments)
+- [Testing sending of emails](#testing-sending-of-emails-via-contact-form)
+- [General Testing](#general-testing)
+
 
 [Automated Testing](#automated-testing)
 - [Travis CI](#travis-ci)
@@ -46,14 +70,14 @@ The project is available on Heroku via [https://spectrum-ltd.herokuapp.com/](htt
 
 [Manual Testing](#manual-testing)
 - [Browser Testing](#browser-testing)
-- [Device Testing](#device_testing)
+- [Device Testing](#device-testing)
 
 [Known Issues](#known-issues)
 
 [Deployment](#deployment)
-- [Development Version vs Production/Deployed Version](#development-version-vs-production/deployed-version)
+- [Development Version vs Production Version](#development-version-vs-production-version)
     - [Development Version](#development-version) 
-    - [Production/Deployed Version](#production/deployed-version) 
+    - [Production Version](#production-version) 
 
 [Setting up Heroku](#setting-up-heroku)
 
@@ -76,10 +100,14 @@ this can be based on the image description, the colour, the size or the price.
 The shop also allows online reviews of products made by other purchasers.
 The purchasing system is easy to use and allows for quick checkout.
 
-[User Stories](https://github.com/Andreaytm/spectrum/blob/master/misc/user-stories.pdf) have been created and are available via the link. Two main users were created the shop manager/assistant (The Superusers), 
-general browsing users who are potential customers who have browsed on to the site and are looking around, 
-and authenticated users who are customer of the site. 
-As this is a range of individuals who could be of varying ages I have referred to them as just users.
+
+[User Stories](https://github.com/Andreaytm/spectrum/blob/master/misc/user-stories.pdf) have been created and are available via the link. 
+Three main users were created:
+1. The shop manager/assistant (The Superusers), 
+2. General browsing users who are potential customers who have browsed on to the site and are looking around, and
+3. Authenticated users who are customer of the site. 
+
+As these can be a range of individuals who could be of varying ages, professions and personalities I have referred to them as just users.
 
 However this could be:
 - Jane, mum with 2 daughters looking to decorate her house and daughter's room with some prints.
@@ -96,7 +124,7 @@ The planning of the style, look and feel of the website was captured in the
 ## Features
 
 ### Existing Features
-- **Navigation of website**
+- #### Navigation of Website
     - All basic users can navigate website but with some limited functionalities
         - can look at products - shop
         - can look at reviews - reviews
@@ -107,7 +135,7 @@ The planning of the style, look and feel of the website was captured in the
         - can add products to cart, but cannot checkout
         - can register for account or login
         
-- **User Authentication**
+- #### User Authentication
     - login/logout/registration and password request features via completion of relevant forms.
     - specific logged in user access 
         - create/update/delete review
@@ -116,29 +144,30 @@ The planning of the style, look and feel of the website was captured in the
             - edit delivery address
             - see orders placed
             
-- **e-commerce functionality**
+- #### e-Commerce Functionality
     - easy to use checkout system (user must log in)
-    - search bar to search for products
+    - search bar to search for products by description, name and tags
     - add and remove products from cart
     - single payment
     - sort products alphabetically or reverse alphabetical order
     - sort products by cost Low-High or High-Low
-    
-- **Review products (provided logged in)**
+    - free delivery for spending over £100
+
+- #### Review Products (provided logged in)
     - user can rate products
     - add own product images
     - edit/update and delete their own reviews (provided user is owner of review, unless superuser)
     - search for reviews on specific product by product name
     
-- **Contact us form**
+- #### Contact Us Form
     - with SMTP backend use
     - user receives copy of email
     
-- **Search bars** 
+- #### Search and Filter
     - filtering of products by name/description keywords
     - filtering of reviews by product name
     
-- **Responsive UI** 
+- #### Responsive UI
     - cross browser compatible (use of Bootstrap, and media queries where necessary) 
         - Edge
         - IE
@@ -150,83 +179,91 @@ The planning of the style, look and feel of the website was captured in the
         - Android Mobile
         - iPhone 
         - Tablet
-        - iPad
+        - iPad 
 
 ### Enhancement Features
 
 These features will require more development time. 
 - Creation of functionality allowing user to input saved address to billing address.
 - Creation of bar charts as average review rating of specific products.
-- Advanced product pages to select sizes of products and review be added to selected bought products only.
+- Advanced product pages to select sizes of products.
+- Alter product panels for even better UX on iPad.
+- For order history to include total cost of products and be grouped by order number.
+- Reviews be added to selected bought products only.
 - Delivery select options that influence overall total (eg airmail, european delivery etc).
-- Free delivery for spending over £50.
 - Email receipt of order.
 - Pagination of pages for products.
-- Add custom error pages.
+- Add custom 403, 404, 400, 500, error pages.
+- Improve optimisation by implementing suggestions from reports 
+    - [Dareboost](https://www.dareboost.com/en)
+    - [mobiReady](https://ready.mobi/)
 
 
 ## Technologies Used
 
-Essential Technologies:
-- [Cloud 9](https://aws.amazon.com/cloud9/?origin=c9io) online code editor for development of the project
-- CSS for website styling
-- [Django](https://www.djangoproject.com/)
+### Essential Technologies:
+- [Cloud 9](https://aws.amazon.com/cloud9/?origin=c9io) online code editor for development of the project.
+- CSS for website styling with mobile-first styling and bootstrap grid system used for layout.
+- [Django](https://www.djangoproject.com/) Python-based free open source web-framework to create the project.
 - [Github](https://github.com/) for version control.
 - HTML5 for basic markup language and provide semantic elements to webpage design.
 - [jQuery](https://jquery.com/) to manage events and effects for enhanced user experience.
-- JavaScript-for UI enhancements
+- JavaScript-for UI enhancements.
 
-Authentication:
+### Authentication:
 - Use of Cross-Site Request Forgery (CSRF) tokens to mitigate CSRF attacks was used on all forms on the project.
-- [STRIPE](https://stripe.com/gb) for authentication of payment for e-commerce functionality. 
+- [Stripe](https://stripe.com/gb) for authentication of payment for e-commerce functionality. 
 - [Django Secret Key Generator](https://www.miniwebtool.com/django-secret-key-generator/) for generation of new SECRET_KEY.
 
-Deployment:
-- [Gunicorn](https://gunicorn.org/)-A Python package, used for running HTTP servers on UNIX based operating systems and to connect to Heroku.
+### Deployment:
+- [Gunicorn](https://gunicorn.org/) - A Python package, used for running HTTP servers on UNIX based operating systems and to connect to Heroku.
 - [Heroku](https://www.heroku.com/) for deployment and hosting of project.
 
-SQL Database:
-- [dj-database-url](https://pypi.org/project/dj-database-url/) - package allows connection to a database URL (eg Heroku Postgres)
-- [Heroku Postgres](https://www.heroku.com/postgres)- cloud-based Postgres managed SQL database to use in deployment instead of sqlite3 for production.
-- [Psycopg2](https://pypi.org/project/psycopg2/) - package to connect to Postgres databases
+### SQL Database:
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - package allows connection to a database URL (eg Heroku Postgres).
+- [Heroku Postgres](https://www.heroku.com/postgres) - cloud-based Postgres managed SQL database to use in deployment instead of sqlite3 for production.
+- [Psycopg2](https://pypi.org/project/psycopg2/) - package to connect to Postgres databases.
 - [SQLite3 DB](https://docs.python.org/2/library/sqlite3.html) - the standard database on django using Django's ORM in development for local testing.
 
-Storage:
+### Storage:
 - [Pillow](https://pypi.org/project/Pillow/) allows uploading of images through admin page.
 - [Amazon Web Services (AWS)](https://aws.amazon.com/)
     - [S3 Storage](https://aws.amazon.com/s3/?nc2=type_a) used to store mediafiles (images) and staticfiles (JS, CSS, Font Awesome) on cloud-based storage.
     - [Identity and Access Management (IAM) Console](https://aws.amazon.com/iam/) to manage who can access the Amazon AWS services.
-    - [Django-storages and Boto3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html) to connect to AWS S3 bucket
+    - [Django-storages and Boto3](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html) to connect to AWS S3 bucket..
 
-Styling:
+### Styling:
 - [Django-Forms-Bootstrap](https://pypi.org/project/django-forms-bootstrap/) to allow usage of bootstrap in templates.
 - [Bootstrap](https://getbootstrap.com/) for responsive simplistic layouts.
 - [Font Awesome](https://fontawesome.bootstrapcheatsheets.com/) for styling and improved UI.
 - [Favicon Generator](https://www.favicon-generator.org/) to create my own favicon for the website.
 - [Pencil](https://pencil.evolus.vn/) for creation of wireframes.
 
-Testing:
+### Testing:
 - [FreeFormatter.com](https://www.freeformatter.com/) for formatting and indentation.
 - [Coverage](https://coverage.readthedocs.io/en/v4.5.x/) for displaying test reports from Django unit tests.
 - [Travis CI](http://travis-ci.org) allows for Continuous Integration, which runs tests on code every time it is pushed to GitHub.
-- [CSS](https://jigsaw.w3.org/css-validator/) for CSS validation
-- [HTML Validators](https://validator.w3.org/) for HTML validation.
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) for CSS validation.
+- [W3C Markup Validation Service](https://validator.w3.org/) for HTML validation.
 - [JSHint](https://jshint.com/) for JavaScript validation.
 - [PEP8](http://pep8online.com/) for Python validation.
+- [Am I Responsive?](http://ami.responsivedesign.is) for checking cross-device appearances
+
 
 ## Testing:
-Testing STRIPE payments: 
+
+### Testing STRIPE payments: 
 - [Test Cards](https://stripe.com/docs/testing#cards)
 - Tested that all fields requires completion prior to submission of form with exception of CVV as test cards do not require CVV entry)
 - Viewed testing on Stripe Dashboard to ensure that information passed through.
 
 
-Testing sending of emails via contact form: 
+### Testing sending of emails via contact form: 
 - ```EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'```
 - Tested initially on console to display email message.
 - Tested again via smtp to ensure that message goes through to emails.
 
-General Testing:
+### General Testing:
 - Iterative testing has been included throughout the process of the project through observation of complex changes on localhost.
 - Checked syntax for errors against existing Code Institute learnt code.
 - Validation of syntax through [CSS](https://jigsaw.w3.org/css-validator/) and [HTML Validators](https://validator.w3.org/), and 
@@ -290,7 +327,7 @@ See [Behavioural Driven Development Testing (BDD)](https://github.com/Andreaytm/
 
 #### Device Testing
 - Acer Laptop (Aspire 5750) (col-lg)
-- iPad Mini 2 (col-sm (portrait) & col-md (landscape) & apple)
+- iPad Mini 2 and iPad4 (col-sm (portrait) & col-md (landscape) & apple)
 - Android- Samsung Galaxy S8 (col-xs & android)
 - iPhone 2 (col-xs)
 
@@ -308,6 +345,9 @@ devices display with popup alerts to complete fields.
 
 The images sizes within reviews, products and carousels alter across devices. On smaller devices 
 the nav menu displays as a collapsed menu icon.
+
+Some of the products and carousel displays slightly differently in iPad. It is however usable but
+not as attractive as on other devices. This will an enhancement for future iterations of the project.
 
 
 ## Known Issues
@@ -361,7 +401,7 @@ EMAIL_PORT = 587
 
 ## Deployment
 
-### Development Version vs Production/Deployed Version
+### Development Version vs Production Version
 I have noted below the differences of each of the project versions. 
 
 #### Development Version
@@ -414,7 +454,7 @@ MEDIA_URL = '/media/'
 ```
 
 
-#### Production/Deployed Version
+#### Production Version
 - Uses Heroku Postgres database with dependencies of Psycopg2 and dj-database-url.
 - Comment out import env, import dj_database_url, add Database and set DEBUG to False.
 
@@ -478,7 +518,7 @@ MEDIA_URL= "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, MEDIAFILES_LOCATION)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 ```
 
-- The final version has some settings.py with code allowing both development and deployment to be used as follows:
+- The final version has the following code in settings.py allowing both development and deployment functionality:
 ```
 if os.environ.get('DEVELOPMENT'):
     development = True
@@ -562,7 +602,8 @@ The photos used in this site are my own.
     - Haley Schafer
     - Neil McEwen
     - Nakita McCool
-    
+    - Michael Park
+
 - Tiffany Snell for words of encouragement and general check-ups
 
 - **Mentor**:

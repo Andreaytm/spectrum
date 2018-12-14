@@ -382,6 +382,10 @@ input[type="file"] {
     .review-panel {
         min-height: 500px
     }
+    /* carousel */
+    #carousel-index {
+        padding: 10% 0;
+    }
 }
 
 /*------------------------ sm =tablet & small desktop & iPad portrait*/
@@ -397,9 +401,5 @@ input[type="file"] {
     .review-product-detail {
         width: 180px;
         margin: 15px;
-    }
-    /* carousel */
-    #carousel-index {
-        padding: 30% 0;
     }
 }
