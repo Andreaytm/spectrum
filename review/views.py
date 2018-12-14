@@ -59,5 +59,7 @@ def create_or_edit_review(request, pk_review=None):
 def delete_review(request, pk_review):
     review = get_object_or_404(Review, pk=pk_review)
     review.delete()
-    messages.error(request, "Your review has been successfully deleted")
+    messages.success(
+        request, "Your review has been successfully deleted",
+        extra_tags='alert-success')
     return HttpResponseRedirect('/')

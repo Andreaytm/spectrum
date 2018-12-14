@@ -12,7 +12,9 @@ from checkout.models import OrderLineItem
 def logout(request):
     """Log the user out"""
     auth.logout(request)
-    messages.success(request, "You have successfully been logged out!")
+    messages.success(
+        request, "You have successfully logged out!", 
+        extra_tags='alert-success')
     return redirect(reverse('index'))
 
 
@@ -30,7 +32,9 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully logged in!")
+                messages.success(
+                    request, "You have successfully logged in!",
+                    extra_tags='alert-success')
                 return redirect(reverse('index'))
 
             else:
@@ -62,11 +66,14 @@ def registration(request):
 
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered")
+                messages.success(
+                    request, "You have successfully registered",
+                    extra_tags='alert-success')
                 return redirect(reverse('index'))
             else:
                 messages.error(
-                    request, "Unable to register your account at this time")
+                    request, "Unable to register your account at this time",
+                    extra_tags='alert-error')
     else:
         registration_form = UserRegistrationForm()
         address_form = AddressForm()
