@@ -19,9 +19,18 @@ The goal was to create a website for existing and potential customers to buy pro
 to manage the shop online easily.
 
 The project incorporates code pulled from other projects learnt on Code Institute coursework and adapted for the final project needs, including:
-- [django e-commerce](https://github.com/Andreaytm/django-ecommerce) project, 
-- [django-auth](https://github.com/Andreaytm/django-auth) which is already incorporated in the django e-commerce project
-- and [django-blog](https://github.com/Andreaytm/django-blog) which was adapted for the reviews functionality.
+- [django e-commerce](https://github.com/Andreaytm/django-ecommerce "click to got to django-ecommerce repo") project, 
+- [django-auth](https://github.com/Andreaytm/django-auth "click to got to django-auth repo") which is already incorporated in the django e-commerce project
+- and [django-blog](https://github.com/Andreaytm/django-blog "click to got to django-blog repo") which was adapted for the reviews functionality.
+
+
+New functionalities include: 
+- a rating system
+- filtering of products on page
+- free delivery discount
+- working contact form
+- updating of django message features for better UI (colour-coded for errors and successes)
+- and more...
 
 The project is available on Heroku via [https://spectrum-ltd.herokuapp.com/](https://spectrum-ltd.herokuapp.com/)
 
