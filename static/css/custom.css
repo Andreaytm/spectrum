@@ -130,6 +130,9 @@ footer {
     background-color: rgba(0, 0, 0, 0.1);
     font-weight: bold;
 }
+a:hover{
+    color: indigo;
+}
 .hvr-soc-link-red:hover {
    color:#ff0000;
 }
@@ -165,7 +168,7 @@ img {
 	max-height: 400px;
 	overflow: hidden;
 }
-.carousel-img{
+.carousel-img {
     height: auto;
     width: auto;
 }
